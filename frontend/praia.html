@@ -123,8 +123,13 @@
         <section style="text-align: center; margin-top: 4.5rem; padding: 3rem 1.5rem; background: var(--bg-secondary); border-radius: 16px; border: 1px solid var(--border-color);">
             <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.8rem; font-weight: 400;">Tem fotos desse lugar?</h3>
             <p style="color: var(--text-muted); margin-bottom: 1.8rem; font-size: 0.95rem;">Compartilhe seus melhores momentos com viajantes de todo o mundo na nossa galeria.</p>
-            <a href="gallery.html" class="btn-pill">Acessar Galeria Comunitária</a>
-        </section>
+        <!-- Modal para Expandir Foto: Apenas a imagem com X no canto superior direito para voltar -->
+        <div id="image-modal" class="gallery-pure-modal" onclick="closeImageModal(event)">
+            <button class="gallery-pure-close" onclick="closeImageModal()" title="Fechar e voltar" aria-label="Fechar e voltar">&times;</button>
+            <div class="gallery-pure-wrapper" onclick="event.stopPropagation()">
+                <img id="modal-image" src="" alt="Foto expandida da praia">
+            </div>
+        </div>
     </main>
 
     <footer>

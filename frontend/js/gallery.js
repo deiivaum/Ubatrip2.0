@@ -9,20 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-image');
-    const modalCaption = document.getElementById('modal-caption');
-    const modalAuthor = document.getElementById('modal-author');
 
     if (token) {
         if (uploadSection) uploadSection.style.display = 'block';
         if (loginPrompt) loginPrompt.style.display = 'none';
     }
 
-    // Modal para expandir imagem
-    window.openImageModal = function(src, caption, author) {
-        if (!modal) return;
+    // Modal para expandir APENAS a imagem com X para voltar
+    window.openImageModal = function(src) {
+        if (!modal || !modalImg) return;
         modalImg.src = src;
-        modalCaption.textContent = caption || 'Foto da Comunidade UbaTrip';
-        modalAuthor.textContent = author ? `Enviada por: ${author}` : '';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Trava scroll de fundo
     };
@@ -31,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = 'auto'; // Restaura scroll
+        if (modalImg) modalImg.src = '';
     };
 
     // Fechar modal ao pressionar tecla ESC
@@ -65,13 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const fullUrl = `http://localhost:3000/uploads/${img.filename}`;
-                const safeDesc = (img.description || 'Foto em Ubatuba').replace(/'/g, "\\'");
-                const safeAuthor = (img.author || 'Viajante').replace(/'/g, "\\'");
 
                 item.innerHTML = `
-                    <div class="gallery-img-clickable" onclick="openImageModal('${fullUrl}', '${safeDesc}', '${safeAuthor}')" title="Clique para expandir a foto">
+                    <div class="gallery-img-clickable" onclick="openImageModal('${fullUrl}')" title="Clique para expandir a foto">
                         <img src="${fullUrl}" alt="${img.description || 'Foto de Ubatuba'}" loading="lazy">
-                        <div class="gallery-zoom-hint">🔍 Expandir</div>
+                        <div class="gallery-zoom-hint">🔍 Expandir Foto</div>
                     </div>
                     <div class="info">
                         <p class="desc">${img.description || 'Sem descrição'}</p>
@@ -83,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } catch (err) {
             console.error('Erro ao carregar imagens:', err);
+            if (typeof window.showToast === 'function') {
+                window.showToast('Erro ao carregar as imagens da galeria.', 'error');
+            }
         }
     }
 
@@ -97,7 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const descInput = document.getElementById('image-desc');
             
             if (!fileInput.files[0]) {
-                alert('Por favor, selecione uma imagem.');
+                if (typeof window.showToast === 'function') {
+                    window.showToast('Por favor, selecione uma imagem para enviar.', 'error');
+                } else {
+                    alert('Por favor, selecione uma imagem.');
+                }
                 return;
             }
 
@@ -117,20 +119,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.ok) {
                     fileInput.value = '';
                     descInput.value = '';
+                    if (typeof window.showToast === 'function') {
+                        window.showToast('Foto enviada com sucesso para a galeria!', 'success');
+                    }
                     loadImages();
                 } else {
                     const data = await res.json();
-                    alert(data.error || 'Erro ao enviar a imagem.');
+                    if (typeof window.showToast === 'function') {
+                        window.showToast(data.error || 'Erro ao enviar a imagem.', 'error');
+                    } else {
+                        alert(data.error || 'Erro ao enviar a imagem.');
+                    }
                 }
             } catch (err) {
-                alert('Erro na comunicação com o servidor.');
+                if (typeof window.showToast === 'function') {
+                    window.showToast('Erro de comunicação com o servidor ao enviar a foto.', 'error');
+                } else {
+                    alert('Erro na comunicação com o servidor.');
+                }
             }
         });
     }
 
     // Exclusão de foto
     window.deleteImage = async function(id) {
-        if (!confirm('Tem certeza que deseja excluir esta foto?')) return;
+        if (!confirm('Tem certeza que deseja excluir esta foto da galeria?')) return;
         
         try {
             const res = await fetch(`${GALLERY_API}/${id}`, {
@@ -141,13 +154,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (res.ok) {
+                if (typeof window.showToast === 'function') {
+                    window.showToast('Foto excluída com sucesso!', 'success');
+                }
                 loadImages();
             } else {
                 const data = await res.json();
-                alert(data.error || 'Erro ao deletar imagem.');
+                if (typeof window.showToast === 'function') {
+                    window.showToast(data.error || 'Erro ao excluir a foto.', 'error');
+                } else {
+                    alert(data.error || 'Erro ao deletar imagem.');
+                }
             }
         } catch (err) {
-            alert('Erro de conexão ao excluir.');
+            if (typeof window.showToast === 'function') {
+                window.showToast('Erro de conexão ao tentar excluir a foto.', 'error');
+            } else {
+                alert('Erro de conexão ao excluir.');
+            }
         }
     };
 });

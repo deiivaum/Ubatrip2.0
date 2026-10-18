@@ -64,17 +64,11 @@
             <!-- Imagens injetadas via gallery.js -->
         </section>
 
-        <!-- Modal para Expandir Foto -->
-        <div id="image-modal" class="image-modal-overlay" onclick="closeImageModal(event)">
-            <div class="image-modal-content" onclick="event.stopPropagation()">
-                <button class="modal-close-btn" onclick="closeImageModal()">&times;</button>
-                <div class="modal-image-wrapper">
-                    <img id="modal-image" src="" alt="Foto expandida">
-                </div>
-                <div class="modal-details">
-                    <p id="modal-caption" class="modal-caption-text"></p>
-                    <p id="modal-author" class="modal-author-text"></p>
-                </div>
+        <!-- Modal para Expandir Foto: Apenas a imagem com X no canto superior direito para voltar -->
+        <div id="image-modal" class="gallery-pure-modal" onclick="closeImageModal(event)">
+            <button class="gallery-pure-close" onclick="closeImageModal()" title="Fechar e voltar" aria-label="Fechar e voltar">&times;</button>
+            <div class="gallery-pure-wrapper" onclick="event.stopPropagation()">
+                <img id="modal-image" src="" alt="Foto expandida da galeria">
             </div>
         </div>
     </main>

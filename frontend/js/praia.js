@@ -61,11 +61,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         ).join('');
     }
 
+    // Modal de Imagem Limpo
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image');
+
+    window.openImageModal = function(src) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeImageModal = function() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        if (modalImg) modalImg.src = '';
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            window.closeImageModal();
+        }
+    });
+
     // Galeria de Fotos
     const photosContainer = document.getElementById('praia-photos');
     if (photosContainer && praia.images) {
         photosContainer.innerHTML = praia.images.map(img => `
-            <div class="praia-photo-card">
+            <div class="praia-photo-card" style="cursor: pointer;" onclick="openImageModal('${img.url}')" title="Clique para expandir a foto">
                 <img src="${img.url}" alt="${img.caption}" loading="lazy">
                 <div class="photo-caption">${img.caption}</div>
             </div>

@@ -1,6 +1,69 @@
 window.API_URL = window.API_URL || '/api';
 var API_URL = window.API_URL;
 
+// ==================== SISTEMA GLOBAL DE NOTIFICAÇÕES (TOAST POPUP) ====================
+window.showToast = function(message, type = 'success', duration = 4200) {
+    if (!message) return;
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    const isError = (type === 'error' || type === 'danger');
+    toast.className = `toast-popup ${isError ? 'toast-error' : 'toast-success'}`;
+
+    const icon = isError ? '✕' : '✓';
+    toast.innerHTML = `
+        <div class="toast-icon">${icon}</div>
+        <div class="toast-message">${message}</div>
+        <button class="toast-close-btn" title="Fechar notificação" aria-label="Fechar">&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    let dismissed = false;
+    function removeToast() {
+        if (dismissed) return;
+        dismissed = true;
+        toast.classList.add('toast-hide');
+        setTimeout(() => {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 320);
+    }
+
+    const closeBtn = toast.querySelector('.toast-close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', removeToast);
+    }
+
+    if (duration > 0) {
+        setTimeout(removeToast, duration);
+    }
+};
+
+window.showNotification = window.showToast;
+
+// Intercepta alert() padrão para exibir popups no canto superior direito (Verde = Sucesso / Vermelho = Erro)
+window.alert = function(msg) {
+    if (!msg) return;
+    const str = String(msg);
+    const lower = str.toLowerCase();
+    const isError = lower.includes('erro') || lower.includes('error') || lower.includes('inválid') || 
+                    lower.includes('incorret') || lower.includes('falha') || lower.includes('restrito') || 
+                    lower.includes('negado') || lower.includes('preencha') || lower.includes('selecione') || 
+                    lower.includes('requer');
+    const isSuccess = lower.includes('sucesso') || lower.includes('salv') || lower.includes('atualizad') || 
+                      lower.includes('cadastrad') || lower.includes('enviad') || str.includes('✅');
+
+    const type = isError ? 'error' : (isSuccess ? 'success' : 'info');
+    const cleanMsg = str.replace(/^[✅❌⚠️ℹ️]\s*/, '');
+    window.showToast(cleanMsg, type);
+};
+
 function checkAuth() {
     const token = localStorage.getItem('token');
     const userJson = localStorage.getItem('user');
