@@ -221,6 +221,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const currentToken = localStorage.getItem('token');
+            if (!currentToken) {
+                if (typeof window.showToast === 'function') {
+                    window.showToast('Faça login para compartilhar fotos na galeria.', 'error');
+                } else {
+                    alert('Faça login para compartilhar fotos.');
+                }
+                return;
+            }
+
             const formData = new FormData();
             formData.append('image', fileInput.files[0]);
             formData.append('description', descInput.value);
@@ -228,11 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('praia_id', praiaSelect.value);
             }
 
+            const authHeaderVal = currentToken.startsWith('Bearer ') ? currentToken : `Bearer ${currentToken}`;
+
             try {
                 const res = await fetch(GALLERY_API, {
                     method: 'POST',
                     headers: {
-                        'Authorization': token
+                        'Authorization': authHeaderVal
                     },
                     body: formData
                 });
@@ -246,9 +258,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     loadImages();
                 } else {
-                    const data = await res.json();
+                    const data = await res.json().catch(() => ({}));
+                    if (res.status === 401 || data.expired) {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('user');
+                        if (uploadSection) uploadSection.style.display = 'none';
+                        if (loginPrompt) {
+                            loginPrompt.style.display = 'block';
+                            loginPrompt.innerHTML = '⚠️ Sua sessão expirou. <a href="login.html" style="color: var(--olive-btn); font-weight: 700; text-decoration: underline;">Clique aqui para fazer login novamente</a>.';
+                        }
+                        if (typeof checkAuth === 'function') checkAuth();
+                    }
                     if (typeof window.showToast === 'function') {
-                        window.showToast(data.error || 'Erro ao enviar a imagem.', 'error');
+                        window.showToast(data.error || 'Erro ao enviar a imagem. Faça login novamente.', 'error');
                     } else {
                         alert(data.error || 'Erro ao enviar a imagem.');
                     }
@@ -267,11 +289,21 @@ document.addEventListener('DOMContentLoaded', () => {
     window.deleteImage = async function(id) {
         if (!confirm('Tem certeza que deseja excluir esta foto da galeria?')) return;
         
+        const currentToken = localStorage.getItem('token');
+        if (!currentToken) {
+            if (typeof window.showToast === 'function') {
+                window.showToast('Faça login para excluir fotos.', 'error');
+            }
+            return;
+        }
+
+        const authHeaderVal = currentToken.startsWith('Bearer ') ? currentToken : `Bearer ${currentToken}`;
+
         try {
             const res = await fetch(`${GALLERY_API}/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': token
+                    'Authorization': authHeaderVal
                 }
             });
             
@@ -281,7 +313,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 loadImages();
             } else {
-                const data = await res.json();
+                const data = await res.json().catch(() => ({}));
+                if (res.status === 401 || data.expired) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    if (typeof checkAuth === 'function') checkAuth();
+                }
                 if (typeof window.showToast === 'function') {
                     window.showToast(data.error || 'Erro ao excluir a foto.', 'error');
                 } else {
