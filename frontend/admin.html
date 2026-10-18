@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBATRIP - Painel Administrativo</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Overlay & Drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
+    <div class="drawer-nav" id="drawer-nav">
+        <button class="drawer-close" onclick="toggleDrawer()">&times;</button>
+        <a href="index.html" onclick="toggleDrawer()">Início</a>
+        <a href="praias.html" onclick="toggleDrawer()">Catálogo de Praias (100+)</a>
+        <a href="index.html#mapa" onclick="toggleDrawer()">Mapa Costeiro</a>
+        <a href="cadastrar-praia.html">Cadastrar Praia</a>
+        <a href="gallery.html">Galeria Comunitária</a>
+        <a href="admin.html">Painel Admin</a>
+        <div id="drawer-auth-links" style="margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;"></div>
+    </div>
+
+    <!-- Header com Logo e Hamburger Menu -->
+    <header>
+        <a href="index.html" class="logo-link">UBATRIP</a>
+        
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="praias.html">Praias (+100)</a>
+                <a href="index.html#mapa">Mapa</a>
+                <a href="cadastrar-praia.html">Cadastrar Praia</a>
+                <a href="gallery.html">Galeria</a>
+            </nav>
+            <div id="auth-links" class="auth-nav"></div>
+            <button class="menu-btn" onclick="toggleDrawer()" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 5rem; width: 100%;">
+        <div style="margin-bottom: 2rem;">
+            <a href="index.html" class="btn-pill" style="padding: 0.45rem 1.4rem; font-size: 0.8rem; background-color: transparent; border: 1px solid var(--border-color); color: var(--text-primary); box-shadow: none;">
+                &larr; Voltar ao Início
+            </a>
+        </div>
+
+        <section class="gallery-hero" style="padding-top: 0; padding-bottom: 2.5rem;">
+            <h1>PAINEL DE ADMIN</h1>
+            <p>GERENCIADOR DE COORDENADAS, FAIXA DE AREIA E FOTOS</p>
+        </section>
+
+        <!-- Card de Seleção da Praia -->
+        <div class="upload-card" style="max-width: 750px; margin-bottom: 2rem;">
+            <label for="praia-select" style="font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 0.6rem; color: var(--text-primary);">
+                Selecione a praia que deseja gerenciar:
+            </label>
+            <select id="praia-select" class="pill-input" style="background: var(--bg-color); color: var(--text-primary); border: 1px solid var(--border-color); text-align: left; padding: 0.8rem 1.2rem;">
+                <!-- Opções carregadas via JS -->
+            </select>
+        </div>
+
+        <!-- Card de Edição de Coordenadas Geográficas (GPS) e Mapa da Praia -->
+        <div class="upload-card" style="max-width: 750px; margin-bottom: 2.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                <h3 style="margin: 0; font-family: var(--font-serif); font-size: 1.4rem;">📍 Coordenadas Geográficas (GPS)</h3>
+                <!-- Alternador Relevo / Satélite no Admin -->
+                <div class="google-layer-widget" style="position: static; box-shadow: none; padding: 2px;">
+                    <button type="button" class="google-btn-tab active" id="btn-admin-terrain">
+                        <span class="g-icon">⛰️</span> Relevo
+                    </button>
+                    <button type="button" class="google-btn-tab" id="btn-admin-satellite">
+                        <span class="g-icon">🛰️</span> Satélite
+                    </button>
+                </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.2rem;">
+                Ajuste a latitude e longitude exatas da praia em Ubatuba. Você pode alterar os valores numéricos ou arrastar o marcador diretamente no mapa abaixo.
+            </p>
+
+            <form id="admin-coords-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label for="admin-beach-lat" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">
+                            Latitude (GPS) *
+                        </label>
+                        <input type="number" step="0.000001" id="admin-beach-lat" class="pill-input-light" placeholder="-23.465800" required>
+                    </div>
+                    <div>
+                        <label for="admin-beach-lng" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">
+                            Longitude (GPS) *
+                        </label>
+                        <input type="number" step="0.000001" id="admin-beach-lng" class="pill-input-light" placeholder="-45.058300" required>
+                    </div>
+                </div>
+
+                <!-- Mapa Leaflet Interativo do Admin -->
+                <div style="position: relative; width: 100%; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                    <div id="admin-leaflet-map" style="width: 100%; height: 100%;"></div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.8rem;">
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">
+                        Ponto GPS selecionado: <strong id="admin-coords-display" style="color: var(--text-primary);">-23.4658, -45.0583</strong>
+                    </span>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <a id="admin-btn-test-maps" href="#" target="_blank" rel="noopener noreferrer" class="btn-pill" style="font-size: 0.78rem; padding: 0.4rem 0.9rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">
+                            🌐 Ver no Google Maps &rarr;
+                        </a>
+                        <a id="admin-btn-test-mapa" href="index.html#mapa" class="btn-pill" style="font-size: 0.78rem; padding: 0.4rem 0.9rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">
+                            🗺️ Ver no Mapa do Guia &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-save-coords" class="btn-pill" style="width: 100%; padding: 0.75rem 1.5rem; font-size: 0.9rem; background: var(--olive-btn);">
+                    💾 Salvar Novas Coordenadas da Praia
+                </button>
+            </form>
+        </div>
+
+        <!-- Seção com Fotos Atuais da Praia Selecionada -->
+        <section style="margin-bottom: 3.5rem;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 1.2rem; font-weight: 400;">Fotos Atuais da Praia</h3>
+            <div id="admin-current-photos" class="praia-photos-grid">
+                <!-- Imagens atuais exibidas aqui com botão de substituir/excluir -->
+            </div>
+        </section>
+
+        <!-- Formulário para Substituir ou Adicionar Foto -->
+        <div class="upload-card" style="max-width: 750px;">
+            <h3 id="form-action-title">Adicionar Nova Foto para a Praia</h3>
+            <p id="form-action-desc" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.2rem;">
+                Envie um arquivo do seu dispositivo ou informe o link direto de uma foto da internet.
+            </p>
+
+            <form id="admin-photo-form" class="upload-form">
+                <input type="hidden" id="target-image-index" value="-1">
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; font-weight: 600;">Opção 1: Enviar arquivo do computador</label>
+                    <input type="file" id="photo-file" accept="image/*">
+                </div>
+
+                <div style="text-align: center; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">
+                    — ou —
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; font-weight: 600;">Opção 2: Colar URL direta da imagem (ex: Unsplash / Web)</label>
+                    <input type="text" id="photo-url" placeholder="https://exemplo.com/foto-ubatuba.jpg">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; font-weight: 600;">Legenda da Foto</label>
+                    <input type="text" id="photo-caption" placeholder="Ex: Vista panorâmica da orla ao amanhecer">
+                </div>
+
+                <!-- Preview da Foto -->
+                <div id="photo-preview-box" style="display: none; margin-top: 0.5rem; text-align: center;">
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem;">Pré-visualização:</p>
+                    <img id="photo-preview-img" src="" alt="Preview" style="max-height: 220px; border-radius: 8px; border: 1px solid var(--border-color); object-fit: cover; width: 100%;">
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button type="submit" class="btn-pill" style="flex: 2;">Salvar Imagem na Praia</button>
+                    <button type="button" id="btn-cancel-replace" class="btn-pill" style="flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); display: none;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 UbaTrip — Painel de Controle</p>
+    </footer>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/praias-data.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer-nav');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

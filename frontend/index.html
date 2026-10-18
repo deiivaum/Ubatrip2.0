@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBATRIP - Seu Guia em Ubatuba</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Overlay & Drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
+    <div class="drawer-nav" id="drawer-nav">
+        <button class="drawer-close" onclick="toggleDrawer()">&times;</button>
+        <a href="index.html" onclick="toggleDrawer()">Início</a>
+        <a href="praias.html">Catálogo de Praias (100+)</a>
+        <a href="#mapa" onclick="toggleDrawer()">Mapa Costeiro</a>
+        <a href="#sobre" onclick="toggleDrawer()">Sobre Ubatuba</a>
+        <a href="#hoteis" onclick="toggleDrawer()">Hotéis/Pousadas</a>
+        <a href="gallery.html">Galeria Comunitária</a>
+        <div id="drawer-auth-links"
+            style="margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+            <!-- Preenchido via auth.js -->
+        </div>
+    </div>
+
+    <!-- Header com Logo e Hamburger Menu -->
+    <header>
+        <a href="index.html" class="logo-link">UBATRIP</a>
+
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#mapa">Mapa</a>
+                <a href="praias.html">Praias (+100)</a>
+                <a href="gallery.html">Galeria</a>
+            </nav>
+            <div id="auth-links" class="auth-nav"></div>
+            <!-- Botão Menu Hambúrguer do mockup -->
+            <button class="menu-btn" onclick="toggleDrawer()" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section idêntica ao Mockup -->
+        <section class="hero-editorial">
+            <h1 class="main-title">UBATRIP</h1>
+            <p class="sub-title">SEU GUIA EM UBATUBA</p>
+
+            <div class="pill-buttons-row">
+                <a href="register.html" class="btn-pill" id="hero-auth-btn">Cadastro</a>
+                <a href="praias.html" class="btn-pill">Explorar Praias (+100)</a>
+                <a href="#mapa" class="btn-pill">Mapa de Praias</a>
+                <a href="#hoteis" class="btn-pill">Hotéis/Pousadas</a>
+            </div>
+
+            <a href="#sobre" class="scroll-link-sobre">sobre ubatuba</a>
+        </section>
+
+        <!-- Linha divisória horizontal idêntica ao Mockup -->
+        <hr class="divider-line">
+
+        <!-- Seção Sobre Ubatuba idêntica ao Mockup -->
+        <section class="section-sobre" id="sobre">
+            <div class="sobre-text">
+                <h2>Sobre Ubatuba</h2>
+                <p>
+                    Ubatuba, oficialmente Estância Balneária de Ubatuba, é um município brasileiro do estado de São
+                    Paulo. Localizada na Mesorregião do Vale do Paraíba Paulista e na Microrregião de Caraguatatuba,
+                    trata-se de uma estância balneária cujo território ocupa uma área de 708,105km², sendo 83% coberto
+                    pelo Parque Estadual da Serra do Mar.
+                </p>
+            </div>
+            <div class="sobre-img-container">
+                <!-- Imagem das praias e mata atlântica de Ubatuba -->
+                <img src="https://blog.blablacar.com.br/wp-content/uploads/2024/02/ubatuba-sp-_5_.webp"
+                    alt="Praia paradisíaca de Ubatuba cercada pela mata atlântica">
+            </div>
+        </section>
+
+        <!-- Seção do Mapa Interativo com Áreas de Praias de Ubatuba -->
+        <section class="section-map" id="mapa">
+            <div class="map-heading-wrapper">
+                <span class="map-eyebrow">Geolocalização Interativa Costeira</span>
+                <h2>Mapa Costeiro & Áreas de Praias de Ubatuba</h2>
+                <p class="map-desc">
+                    Explore as <strong>áreas de praia demarcadas</strong> no litoral de Ubatuba. Clique em qualquer área
+                    para abrir e redirecionar para a página da praia, ou use o modo de demarcação para selecionar e
+                    registrar novas áreas costeiras!
+                </p>
+            </div>
+
+            <!-- Barra Superior de Ferramentas e Filtros do Mapa -->
+            <div class="map-controls-toolbar">
+                <!-- Filtros de Região do Mapa -->
+                <div class="region-filter-pills" id="map-region-filters">
+                    <button type="button" class="filter-pill active" data-region="todas">🌊 Todas as Praias</button>
+                    <button type="button" class="filter-pill" data-region="norte">Região Norte</button>
+                    <button type="button" class="filter-pill" data-region="centro">Centro</button>
+                    <button type="button" class="filter-pill" data-region="sul">Região Sul</button>
+                    <button type="button" class="filter-pill" data-region="ilhas">🏝️ Ilhas</button>
+                </div>
+
+                <!-- Ações do Mapa: Demarcar Área, Satélite, Focar e Busca -->
+                <div class="map-actions-row">
+                    <!-- Botão Demarcar / Selecionar Área de Praia -->
+                    <button type="button" id="btn-toggle-draw" class="btn-pill btn-draw-mode"
+                        title="Ativar modo de demarcação de área no mapa">
+                        <span class="btn-icon">📐</span>
+                        <span id="draw-btn-text">Demarcar Área de Praia</span>
+                    </button>
+
+                    <!-- Botão Alternar Satélite / Mapa -->
+                    <button type="button" id="btn-toggle-tiles" class="btn-pill btn-layer-mode"
+                        title="Alternar entre Satélite Real e Mapa de Ruas">
+                        <span id="layer-icon">🛰️</span>
+                        <span id="layer-text">Satélite</span>
+                    </button>
+
+                    <!-- Botão Recentralizar Ubatuba -->
+                    <button type="button" id="btn-reset-map" class="btn-pill btn-reset-mode"
+                        title="Recentralizar na cidade de Ubatuba">
+                        <span>🎯</span> Focar Ubatuba
+                    </button>
+
+                    <!-- Seletor Rápido de Praias -->
+                    <select id="manual-praia-select" class="pill-input map-praia-dropdown"
+                        title="Buscar e navegar para uma praia">
+                        <option value="">🔍 Buscar praia no mapa...</option>
+                    </select>
+
+                    <!-- Botão Cadastrar Praia (Página Dedicada) -->
+                    <a href="cadastrar-praia.html" class="btn-pill btn-add-general"
+                        title="Cadastrar nova praia em Ubatuba">
+                        <span>➕</span> Cadastrar Praia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Banner Flutuante de Demarcação Ativa (Faixa de Areia e Polígono Costeiro) -->
+            <div id="draw-active-banner" class="draw-active-banner" style="display: none;">
+                <div class="draw-banner-inner">
+                    <div class="draw-status-box">
+                        <span class="draw-pulsing-badge"></span>
+                        <div>
+                            <strong id="draw-mode-title">Demarcação da Faixa de Areia</strong>
+                            <p id="draw-instructions">
+                                Clique ao longo da costa para traçar a faixa de areia. Arraste qualquer ponto para ajustar a curvatura.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Seletor de Ferramenta de Marcação -->
+                    <div class="draw-submodes-row">
+                        <button type="button" class="draw-submode-pill active" id="submode-sand-strip" title="Traçar faixa de areia da praia com largura ajustável em metros">
+                            🏖️ Faixa de Areia
+                        </button>
+                        <button type="button" class="draw-submode-pill" id="submode-polygon" title="Contorno livre por polígono poligonal">
+                            📐 Polígono Detalhado
+                        </button>
+                        <button type="button" class="draw-submode-pill" id="submode-freehand" title="Desenhar livremente arrastando o mouse sobre a areia">
+                            ✏️ Traço Livre
+                        </button>
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    <div class="draw-actions-btns">
+                        <button type="button" id="btn-undo-draw" class="btn-pill btn-action-undo" disabled title="Desfazer o último ponto">
+                            ↩️ Desfazer
+                        </button>
+                        <button type="button" id="btn-clear-draw" class="btn-pill btn-action-clear" title="Limpar todos os pontos">
+                            🔄 Limpar
+                        </button>
+                        <button type="button" id="btn-finish-area" class="btn-pill btn-action-finish" disabled title="Concluir e salvar a área">
+                            ✅ Concluir Área (<span id="draw-vertex-count">0</span> pts)
+                        </button>
+                        <button type="button" id="btn-cancel-draw" class="btn-pill btn-action-cancel" title="Fechar demarcação">
+                            ✖ Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Barra de Ajuste de Largura da Faixa de Areia (Metragem Real) -->
+                <div id="sand-width-toolbar" class="sand-width-toolbar">
+                    <div class="sand-width-field">
+                        <span class="sand-width-label">🏖️ Largura da Areia: <strong id="sand-width-val">35m</strong></span>
+                        <input type="range" id="sand-width-slider" min="10" max="150" value="35" step="5" class="sand-slider" title="Ajustar largura da faixa de areia em metros">
+                    </div>
+                    <div class="sand-presets-row">
+                        <button type="button" class="sand-quick-width" data-width="20">Estreita (20m)</button>
+                        <button type="button" class="sand-quick-width active" data-width="35">Padrão (35m)</button>
+                        <button type="button" class="sand-quick-width" data-width="60">Larga (60m)</button>
+                        <button type="button" class="sand-quick-width" data-width="100">Ampla (100m)</button>
+                    </div>
+                    <div class="sand-stats-right">
+                        <span id="sand-length-badge" class="sand-stat-badge">
+                            📏 Extensão da Praia: <strong id="sand-length-val">0m</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Principal do Mapa Leaflet -->
+            <div class="ubatuba-map-card">
+                <div id="ubatuba-leaflet-map" class="ubatuba-map-viewport"></div>
+
+                <!-- Seletor de Camadas Idêntico ao Google Maps (Relevo / Estrada / Satélite) -->
+                <div class="google-layer-widget" id="google-layer-widget" title="Alternar visualização do Google Maps">
+                    <button type="button" class="google-btn-tab active" data-map-type="terrain">
+                        <span class="g-icon">⛰️</span>
+                        <span class="g-label">Relevo</span>
+                    </button>
+                    <button type="button" class="google-btn-tab" data-map-type="roadmap">
+                        <span class="g-icon">🛣️</span>
+                        <span class="g-label">Estrada</span>
+                    </button>
+                    <button type="button" class="google-btn-tab" data-map-type="satellite">
+                        <span class="g-icon">🛰️</span>
+                        <span class="g-label">Satélite</span>
+                    </button>
+                </div>
+
+                <!-- Card Flutuante de Preview da Praia Selecionada -->
+                <div id="map-floating-card" class="map-floating-card">
+                    <button type="button" class="card-close-x" onclick="closeMapCard()">&times;</button>
+                    <div id="card-inner-content">
+                        <!-- Injetado dinamicamente via main.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dica de Localização / Ponto Clicado -->
+            <div id="selected-location" style="display: none; text-align: center; margin-top: 1.2rem;">
+                <span class="selected-coords-pill">
+                    📍 Coordenadas em Ubatuba: <strong id="location-coords"></strong> &nbsp;|&nbsp;
+                    <a id="link-cadastrar-coords" href="cadastrar-praia.html"
+                        style="color: var(--olive-btn); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Cadastrar
+                        praia nestas coordenadas &rarr;</a>
+                </span>
+            </div>
+
+            <!-- Banner Direcionando para o Catálogo Completo das 100+ Praias -->
+            <div
+                style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 2.2rem 1.5rem; margin-top: 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+                <span style="font-size: 2rem;">🌊</span>
+                <h3
+                    style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--text-primary); font-weight: 400; margin: 0;">
+                    Ubatuba tem mais de 100 Praias Catalogadas
+                </h3>
+                <p style="color: var(--text-muted); max-width: 650px; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                    Conheça nossa galeria exclusiva com fotos, informações sobre condições de mar, tipo de acesso
+                    (carro, trilha ou barco) e disponibilidade de estacionamento e Zona Azul para cada praia.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.8rem;">
+                    <a href="praias.html" class="btn-pill" style="padding: 0.8rem 2.2rem; font-size: 0.9rem;">
+                        Ver Catálogo Completo das 100+ Praias &rarr;
+                    </a>
+                    <a href="cadastrar-praia.html" class="btn-pill"
+                        style="padding: 0.8rem 1.8rem; font-size: 0.9rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">
+                        ➕ Adicionar Nova Praia ao Guia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade Rápida de Destaques -->
+            <div style="margin-top: 3.5rem;">
+                <h3
+                    style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.5rem; text-align: center; font-weight: 400;">
+                    Guia Rápido de Praias</h3>
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Clique
+                    no mapa acima ou selecione qualquer uma das praias abaixo para ver fotos, acessos e estacionamento:
+                </p>
+                <div id="praias-cards-grid" class="praias-cards-grid"></div>
+            </div>
+        </section>
+
+        <!-- Seção Hotéis e Pousadas -->
+        <section class="section-sobre" id="hoteis" style="margin-bottom: 5rem;">
+            <div class="sobre-img-container">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80"
+                    alt="Pousada charmosa em Ubatuba">
+            </div>
+            <div class="sobre-text">
+                <h2>Hotéis & Pousadas</h2>
+                <p>
+                    De charmosas pousadas pés na areia na Praia do Itaguá e Praia Grande a refúgios ecológicos
+                    integrados à Mata Atlântica em Picinguaba e Itamambuca. Encontre a estadia ideal para descansar com
+                    conforto e tranquilidade após um dia de praia.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="gallery.html" class="btn-pill">Ver Fotos da Galeria</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Vinculação / Salvamento de Área Demarcada no Mapa -->
+    <div id="area-action-modal" class="image-modal-overlay" onclick="closeAreaModal(event)">
+        <div class="image-modal-content" style="max-width: 500px; padding: 2rem;" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeAreaModal()">&times;</button>
+
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span style="font-size: 2.5rem; display: inline-block; margin-bottom: 0.5rem;">🏖️</span>
+                <h2
+                    style="font-family: var(--font-serif); font-size: 1.7rem; color: var(--text-primary); margin: 0 0 0.4rem;">
+                    Área Costeira Selecionada!
+                </h2>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">
+                    Você selecionou uma área de praia no litoral de Ubatuba com <strong id="area-point-count"
+                        style="color: var(--olive-btn);">0</strong> pontos de demarcação.
+                </p>
+            </div>
+
+            <div class="area-modal-choices" style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Opção 1: Vincular a uma praia existente -->
+                <div
+                    style="background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.2rem; transition: border-color 0.2s;">
+                    <h4
+                        style="font-size: 0.95rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; color: var(--text-primary);">
+                        <span>🔗</span> <strong>Vincular a uma Praia Existente</strong>
+                    </h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4;">
+                        Atualize a área costeira desta praia e seja redirecionado imediatamente para ela.
+                    </p>
+                    <select id="area-target-praia" class="pill-input-light" style="margin-bottom: 0.8rem; width: 100%;">
+                        <option value="">Selecione uma praia existente...</option>
+                    </select>
+                    <button type="button" id="btn-confirm-link-praia" class="btn-pill"
+                        style="width: 100%; font-size: 0.85rem; padding: 0.7rem 1.2rem;">
+                        Vincular Área & Ir para a Praia &rarr;
+                    </button>
+                </div>
+
+                <!-- Opção 2: Cadastrar nova praia -->
+                <div
+                    style="background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.2rem; transition: border-color 0.2s;">
+                    <h4
+                        style="font-size: 0.95rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; color: var(--text-primary);">
+                        <span>✨</span> <strong>Cadastrar Nova Praia com esta Área</strong>
+                    </h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4;">
+                        Abra o formulário preenchido com as coordenadas e a área demarcada.
+                    </p>
+                    <button type="button" id="btn-create-new-with-area" class="btn-pill"
+                        style="width: 100%; font-size: 0.85rem; padding: 0.7rem 1.2rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);">
+                        Cadastrar Nova Praia com esta Área &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 UbaTrip — Seu Guia em Ubatuba</p>
+    </footer>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/auth.js?v=6"></script>
+    <script src="js/praias-data.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer-nav');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

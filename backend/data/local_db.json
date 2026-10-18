@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "David",
+      "email": "davidrochaubatuba@gmail.com",
+      "password": "$2b$10$TtWtrdt7PibAITD.KZhicuUvW6Vf0S8bpBrzchQmhuLzmSSoEWG/C",
+      "role": "admin",
+      "created_at": "2026-10-11T02:36:34.632Z"
+    },
+    {
+      "id": 2,
+      "name": "teste",
+      "email": "teste@gmail.com",
+      "password": "$2b$10$ZwmhFBZjcKTJkNCMlld13Oi82wiWBf861iSRyc8rvKsvK1JiS4nw.",
+      "role": "user",
+      "created_at": "2026-10-11T03:04:44.123Z"
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "filename": "1791686567007-60042468.webp",
+      "description": "Essa e a cidade de ubatuba",
+      "created_at": "2026-10-11T02:42:47.010Z"
+    }
+  ],
+  "userSeq": 3,
+  "imageSeq": 2
+}

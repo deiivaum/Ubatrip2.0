@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBATRIP - Detalhes da Praia</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Overlay & Drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
+    <div class="drawer-nav" id="drawer-nav">
+        <button class="drawer-close" onclick="toggleDrawer()">&times;</button>
+        <a href="index.html" onclick="toggleDrawer()">Início</a>
+        <a href="praias.html" onclick="toggleDrawer()">Catálogo de Praias (100+)</a>
+        <a href="index.html#mapa" onclick="toggleDrawer()">Mapa Costeiro</a>
+        <a href="gallery.html">Galeria Comunitária</a>
+        <div id="drawer-auth-links" style="margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;"></div>
+    </div>
+
+    <!-- Header com Logo e Hamburger Menu -->
+    <header>
+        <a href="index.html" class="logo-link">UBATRIP</a>
+        
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="praias.html" style="font-weight: 700; color: var(--olive-btn);">Praias (+100)</a>
+                <a href="index.html#mapa">Mapa</a>
+                <a href="gallery.html">Galeria</a>
+            </nav>
+            <div id="auth-links" class="auth-nav"></div>
+            <button class="menu-btn" onclick="toggleDrawer()" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="praia-content" style="max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; width: 100%;">
+        <!-- Botão de Voltar e Ação de Admin -->
+        <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                <a href="praias.html" class="btn-pill" style="padding: 0.45rem 1.4rem; font-size: 0.8rem; background-color: transparent; border: 1px solid var(--border-color); color: var(--text-primary); box-shadow: none;">
+                    &larr; Catálogo de Praias (+100)
+                </a>
+                <a href="index.html#mapa" class="btn-pill" style="padding: 0.45rem 1.4rem; font-size: 0.8rem; background-color: transparent; border: 1px solid var(--border-color); color: var(--text-primary); box-shadow: none;">
+                    🗺️ Ver no Mapa Costeiro
+                </a>
+            </div>
+            <div id="admin-beach-action" style="display: none;">
+                <a id="admin-edit-link" href="#" class="btn-pill" style="padding: 0.45rem 1.4rem; font-size: 0.8rem; background: var(--text-primary);">
+                    ✏️ Alterar Fotos desta Praia (Admin)
+                </a>
+            </div>
+        </div>
+
+        <!-- Cabeçalho da Praia -->
+        <section class="praia-hero-section">
+            <h1 id="praia-name" class="main-title" style="font-size: 3rem; margin-bottom: 0.4rem; text-align: left;">Carregando...</h1>
+            <p id="praia-subtitle" class="sub-title" style="text-align: left; margin-bottom: 1.5rem;"></p>
+            <div id="praia-tags" class="praia-tags-container"></div>
+        </section>
+
+        <!-- Galeria de Fotos da Praia -->
+        <section style="margin: 2.5rem 0 3.5rem;">
+            <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.2rem; font-weight: 400;">Galeria de Fotos</h2>
+            <div id="praia-photos" class="praia-photos-grid">
+                <!-- Imagens injetadas via JS -->
+            </div>
+        </section>
+
+        <!-- Grid de Informações Detalhadas (Acesso, Estacionamento, Infraestrutura) -->
+        <section class="praia-details-grid">
+            <!-- Card Sobre -->
+            <div class="praia-detail-card" style="grid-column: 1 / -1;">
+                <h3>Sobre o Local</h3>
+                <p id="praia-full-desc" style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.8;"></p>
+            </div>
+
+            <!-- Card Acesso -->
+            <div class="praia-detail-card">
+                <div class="card-icon-title">
+                    <span class="card-icon">🧭</span>
+                    <div>
+                        <h3>Como Chegar & Acesso</h3>
+                        <span id="praia-access-type" class="badge-accent"></span>
+                    </div>
+                </div>
+                <p id="praia-access-desc"></p>
+            </div>
+
+            <!-- Card Estacionamento -->
+            <div class="praia-detail-card">
+                <div class="card-icon-title">
+                    <span class="card-icon">🚗</span>
+                    <div>
+                        <h3>Estacionamento</h3>
+                        <span id="praia-parking-status" class="badge-accent"></span>
+                    </div>
+                </div>
+                <p id="praia-parking-desc"></p>
+            </div>
+
+            <!-- Card Infraestrutura -->
+            <div class="praia-detail-card" style="grid-column: 1 / -1;">
+                <div class="card-icon-title">
+                    <span class="card-icon">🏖️</span>
+                    <h3>Infraestrutura & Dicas</h3>
+                </div>
+                <ul id="praia-infrastructure-list" class="praia-features-list"></ul>
+            </div>
+        </section>
+
+        <!-- Mini Mapa do Local -->
+        <section style="margin-top: 4rem;">
+            <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; font-weight: 400;">Localização Exata</h2>
+            <div id="mini-map" style="height: 350px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.06);"></div>
+        </section>
+
+        <!-- Seção CTA Galeria Comunitária -->
+        <section style="text-align: center; margin-top: 4.5rem; padding: 3rem 1.5rem; background: var(--bg-secondary); border-radius: 16px; border: 1px solid var(--border-color);">
+            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.8rem; font-weight: 400;">Tem fotos desse lugar?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.8rem; font-size: 0.95rem;">Compartilhe seus melhores momentos com viajantes de todo o mundo na nossa galeria.</p>
+            <a href="gallery.html" class="btn-pill">Acessar Galeria Comunitária</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 UbaTrip — Seu Guia em Ubatuba</p>
+    </footer>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/praias-data.js"></script>
+    <script src="js/praia.js"></script>
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer-nav');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

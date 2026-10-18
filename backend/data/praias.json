@@ -1,0 +1,3088 @@
+[
+  {
+    "id": "praia-do-frade",
+    "name": "Praia do Frade",
+    "subtitle": "Praia de Ubatuba - Região centro",
+    "region": "centro",
+    "coords": [
+      -23.561084,
+      -45.219051
+    ],
+    "areaCoords": [
+      [
+        -23.557584000000002,
+        -45.223551
+      ],
+      [
+        -23.557584000000002,
+        -45.214551
+      ],
+      [
+        -23.564584,
+        -45.214551
+      ],
+      [
+        -23.564584,
+        -45.223551
+      ]
+    ],
+    "mapX": 50,
+    "mapY": 50,
+    "shortDesc": "Uma das belas praias de Ubatuba com paisagens preservadas.",
+    "fullDesc": "A Praia do Frade é uma das praias do litoral de Ubatuba, cercada pela Mata Atlântica e águas cristalinas ideais para banho e contemplação.",
+    "access": {
+      "tipo": "Asfaltado e direto",
+      "descricao": "Fácil acesso a partir da Rodovia Rio-Santos (BR-101)."
+    },
+    "parking": {
+      "status": "Zona Azul / Estacionamento local",
+      "descricao": "Vagas na orla sujeitas a Zona Azul ou estacionamentos nas redondezas."
+    },
+    "infrastructure": [
+      "[\"Quiosques com petiscos e bebidas\"",
+      "\"Duchas e banheiros\"]"
+    ],
+    "tags": [
+      "Ubatuba",
+      "centro"
+    ],
+    "images": [
+      {
+        "url": "http://localhost:3000/uploads/praia-1792276327729-971768862.webp",
+        "caption": "Vista panorâmica da Praia do Frade"
+      }
+    ],
+    "created_at": "2026-10-17T22:32:07.735Z"
+  },
+  {
+    "id": "praia-da-fortaleza",
+    "name": "Praia da Fortaleza",
+    "subtitle": "Praia de Ubatuba - Região sul",
+    "region": "sul",
+    "coords": [
+      -23.5282,
+      -45.1649
+    ],
+    "areaCoords": [
+      [
+        -23.5247,
+        -45.1694
+      ],
+      [
+        -23.5247,
+        -45.1604
+      ],
+      [
+        -23.531699999999997,
+        -45.1604
+      ],
+      [
+        -23.531699999999997,
+        -45.1694
+      ]
+    ],
+    "mapX": 50,
+    "mapY": 50,
+    "shortDesc": "Praia localizada em uma peninsula na regiao sul",
+    "fullDesc": "A Praia da Fortaleza é uma das praias do litoral de Ubatuba, cercada pela Mata Atlântica e águas cristalinas ideais para banho e contemplação.",
+    "access": {
+      "tipo": "Estrada de terra",
+      "descricao": "Fácil acesso a partir da Rodovia Rio-Santos (BR-101)."
+    },
+    "parking": {
+      "status": "Zona Azul / Estacionamento local",
+      "descricao": "Vagas na orla sujeitas a Zona Azul ou estacionamentos nas redondezas."
+    },
+    "infrastructure": [
+      "Quiosques de praia",
+      "Duchas e banheiros"
+    ],
+    "tags": [
+      "Ubatuba",
+      "sul"
+    ],
+    "images": [
+      {
+        "url": "http://localhost:3000/uploads/praia-1792275174456-42636316.jpg",
+        "caption": "Vista panorâmica da Praia da Fortaleza"
+      }
+    ],
+    "created_at": "2026-10-17T22:12:54.460Z"
+  },
+  {
+    "id": "praia-do-tenorio",
+    "name": "Praia do Tenório",
+    "subtitle": "Praia familiar charmosa com águas calmas e quiosques",
+    "region": "centro",
+    "coords": [
+      -23.4658,
+      -45.0583
+    ],
+    "mapX": 52,
+    "mapY": 57,
+    "shortDesc": "Excelente para banho de mar em família, com quiosques e sombra de abricoteiros.",
+    "fullDesc": "A Praia do Tenório é uma das mais agradáveis de Ubatuba para passar o dia em família. Localizada próxima ao bairro do Itaguá e vizinha da Praia Grande, possui mar calmo com ondas suaves, areia branca e fina, e ótima estrutura com quiosques tradicionais e aluguel de pranchas e caiaques.",
+    "access": {
+      "tipo": "Asfalto dentro de loteamento residencial",
+      "descricao": "Acesso por ruas pavimentadas a partir da Rodovia Rio-Santos ou da Praia Grande."
+    },
+    "parking": {
+      "status": "Zona Azul nas ruas residenciais",
+      "descricao": "Estacionamento com cobrança de Zona Azul ao longo das ruas de acesso à praia."
+    },
+    "infrastructure": [
+      "Quiosques com petiscos e bebidas",
+      "Duchas e banheiros",
+      "Posto de guarda-vidas",
+      "Árvores com sombra natural na orla"
+    ],
+    "tags": [
+      "Familiar",
+      "Mar Calmo",
+      "Quiosques",
+      "Centro"
+    ],
+    "images": [
+      {
+        "url": "http://localhost:3000/uploads/praia-1792274782075-944490915.webp",
+        "caption": "Águas tranquilas da Praia do Tenório"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.464663,
+        -45.060115
+      ],
+      [
+        -23.465675,
+        -45.058196
+      ],
+      [
+        -23.467089,
+        -45.056678
+      ],
+      [
+        -23.467311,
+        -45.056922
+      ],
+      [
+        -23.465925,
+        -45.058404
+      ],
+      [
+        -23.464937,
+        -45.060285
+      ]
+    ]
+  },
+  {
+    "id": "praia-grande",
+    "name": "Praia Grande",
+    "subtitle": "A praia mais famosa e vibrante de Ubatuba",
+    "region": "centro",
+    "mapX": 48,
+    "mapY": 58,
+    "coords": [
+      -23.4722,
+      -45.0655
+    ],
+    "shortDesc": "Extensa faixa de areia batida, mar com boas ondas e excelente infraestrutura de quiosques.",
+    "fullDesc": "A Praia Grande é o coração do movimento turístico em Ubatuba. Com quase 2 km de extensão de areia compacta e plana, é o destino preferido para quem busca agitação, caminhadas à beira-mar, esportes na areia e serviços completos de praia. Suas ondas atraem desde surfistas iniciantes até intermediários.",
+    "access": {
+      "tipo": "Asfaltado e direto",
+      "descricao": "Localizada às margens da Rodovia Rio-Santos (BR-101), a apenas 4 km do centro urbano de Ubatuba. É acessível facilmente por automóvel, táxi, carros de aplicativo ou linhas de ônibus municipais regulares."
+    },
+    "parking": {
+      "status": "Vagas abundantes na orla (Zona Azul)",
+      "descricao": "Possui centenas de vagas rotativas ao longo de toda a avenida beira-mar com sistema Zona Azul (cobrança diária/rotativa). Na alta temporada e finais de semana ensolarados, as vagas esgotam-se rapidamente antes do meio-dia, havendo também opções de estacionamentos privados nas ruas transversais."
+    },
+    "infrastructure": [
+      "Dezenas de quiosques com petiscos e frutos do mar",
+      "Banheiros químicos e duchas de água doce",
+      "Posto central de Guarda-Vidas com monitoramento",
+      "Aluguel de pranchas de surfe, bodyboard e barracas",
+      "Iluminação noturna na orla para passeios"
+    ],
+    "tags": [
+      "Surf",
+      "Fácil Acesso",
+      "Quiosques",
+      "Zona Azul",
+      "Familiar"
+    ],
+    "images": [
+      {
+        "url": "http://localhost:3000/uploads/praia-1792274718600-286034675.webp",
+        "caption": "Orla ampla da Praia Grande ao entardecer"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Mar cristalino e faixa de areia batida"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.468614,
+        -45.073413
+      ],
+      [
+        -23.470316,
+        -45.069107
+      ],
+      [
+        -23.472036,
+        -45.06537
+      ],
+      [
+        -23.473659,
+        -45.063643
+      ],
+      [
+        -23.473941,
+        -45.063957
+      ],
+      [
+        -23.472364,
+        -45.06563
+      ],
+      [
+        -23.470684,
+        -45.069293
+      ],
+      [
+        -23.468986,
+        -45.073587
+      ]
+    ]
+  },
+  {
+    "id": "praia-do-felix",
+    "name": "Praia do Félix",
+    "subtitle": "O encontro perfeito entre piscinas naturais e ondas perfeitas",
+    "region": "norte",
+    "mapX": 74,
+    "mapY": 34,
+    "coords": [
+      -23.3885,
+      -44.969
+    ],
+    "shortDesc": "Mar calmo com sombra de abricoteiros no canto direito e ondas para surfe no canto esquerdo.",
+    "fullDesc": "A Praia do Félix é uma das mais fascinantes e completas de Ubatuba. Com areias claras e densa vegetação nativa preservada, oferece dois cenários distintos: o canto esquerdo possui ondas fortes de tombo procuradas por surfistas experientes, enquanto o canto direito é um paraíso de águas calmas e translúcidas, ideais para famílias, crianças e mergulho de superfície (snorkeling).",
+    "access": {
+      "tipo": "Condomínio com descida pavimentada",
+      "descricao": "Acesso pelo km 34 da Rodovia Rio-Santos (sentido Paraty). A entrada é feita por uma portaria de condomínio residencial, seguida de uma descida pavimentada de cerca de 1 km até as proximidades da areia."
+    },
+    "parking": {
+      "status": "Vagas demarcadas com Zona Azul (Vagas Limitadas)",
+      "descricao": "O estacionamento é feito nas vias internas do condomínio sob o sistema de Zona Azul de Ubatuba. Por estar em área preservada com limitação de fluxo, o número de vagas é restrito. Recomenda-se chegar antes das 9h30 durante a temporada para garantir vaga."
+    },
+    "infrastructure": [
+      "Quiosques rústicos e barracas charmosas no canto direito",
+      "Aluguel de caiaques e pranchas de Stand-up Paddle (SUP)",
+      "Trilha rápida de 15 minutos para a isolada Praia do Português",
+      "Sombras naturais sob árvores nativas (abricoteiros)"
+    ],
+    "tags": [
+      "Snorkel",
+      "Piscinas Naturais",
+      "Surf",
+      "Preservada",
+      "Condomínio"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Piscinas naturais e águas calmas no canto direito do Félix"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Vegetação exuberante da Mata Atlântica circundando a praia"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.385385,
+        -44.972383
+      ],
+      [
+        -23.388387,
+        -44.968881
+      ],
+      [
+        -23.39139,
+        -44.965678
+      ],
+      [
+        -23.39161,
+        -44.965922
+      ],
+      [
+        -23.388613,
+        -44.969119
+      ],
+      [
+        -23.385615,
+        -44.972617
+      ]
+    ]
+  },
+  {
+    "id": "praia-de-itamambuca",
+    "name": "Praia de Itamambuca",
+    "subtitle": "Capital nacional do surfe ecológico e natureza exuberante",
+    "region": "norte",
+    "mapX": 63,
+    "mapY": 42,
+    "coords": [
+      -23.403,
+      -45.0065
+    ],
+    "shortDesc": "Ondas de classe mundial, rio cristalino desaguando na praia e condomínio ecológico.",
+    "fullDesc": "Famosa mundialmente entre os surfistas, a Praia de Itamambuca já foi palco de etapas históricas do circuito mundial WCT. Além de ondas tubulares constantes, a praia é emoldurada por uma reserva biológica preservada e pelo Rio Itamambuca, cujas águas calmas e doces encontram o mar no canto direito, criando um cenário cinematográfico para relaxar.",
+    "access": {
+      "tipo": "Condomínio ecológico e passarela suspensa",
+      "descricao": "Localizada no km 36 da Rodovia Rio-Santos ao norte do centro. Acesso através da guarita do condomínio ecológico de Itamambuca, com vias de terra bem mantidas e passarelas ecológicas de madeira sobre o manguezal até a areia."
+    },
+    "parking": {
+      "status": "Zona Azul e Estacionamentos Privativos",
+      "descricao": "Vagas distribuídas ao longo das ruas de terra do condomínio regulamentadas por Zona Azul. Próximo ao rio e à entrada principal existem também estacionamentos fechados particulares com diárias fixas."
+    },
+    "infrastructure": [
+      "Escolas de surfe com instrutores renomados",
+      "Quiosques com culinária caiçara, açaí e lanches naturais",
+      "Travessia de barquinho pelo Rio Itamambuca",
+      "Aluguel de pranchas de surfe, SUP e caiaques"
+    ],
+    "tags": [
+      "Surf Internacional",
+      "Encontro de Rio com Mar",
+      "Ecológica",
+      "Mata Atlântica"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Ondas perfeitas e clássicas na arrebentação de Itamambuca"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.399329,
+        -45.012382
+      ],
+      [
+        -23.402831,
+        -45.006379
+      ],
+      [
+        -23.407033,
+        -44.999676
+      ],
+      [
+        -23.407367,
+        -44.999924
+      ],
+      [
+        -23.403169,
+        -45.006621
+      ],
+      [
+        -23.399671,
+        -45.012618
+      ]
+    ]
+  },
+  {
+    "id": "ilha-das-couves",
+    "name": "Ilha das Couves",
+    "subtitle": "Aquário natural com águas verde-esmeralda cintilantes",
+    "region": "ilhas",
+    "mapX": 88,
+    "mapY": 38,
+    "coords": [
+      -23.4235,
+      -44.8605
+    ],
+    "shortDesc": "Passeio de barco inesquecível, visibilidade impressionante e vida marinha rica.",
+    "fullDesc": "A Ilha das Couves é um dos tesouros mais cobiçados do litoral norte de São Paulo. Formada por duas praias principais (Praia Menor e Praia da Terra), suas águas cristalinas em tons de turquesa e verde-esmeralda proporcionam condições ideais para mergulho livre, onde é comum avistar tartarugas marinhas, raias e cardumes coloridos nadando entre as rochas.",
+    "access": {
+      "tipo": "Acesso exclusivamente marítimo (Barco/Lancha)",
+      "descricao": "O embarque acontece principalmente na Praia de Picinguaba (vila tradicional de pescadores a 42 km do centro de Ubatuba). A travessia de barco ou lancha rápida dura cerca de 15 a 20 minutos."
+    },
+    "parking": {
+      "status": "Estacionamento no continente (Vila de Picinguaba)",
+      "descricao": "Na Vila de Picinguaba, o estacionamento é feito em vagas municipais com Zona Azul ou em terrenos particulares com vigilância operados por moradores locais."
+    },
+    "infrastructure": [
+      "Ponto de apoio rústico com bebidas na alta temporada",
+      "Mergulho livre com snorkel guiado por barqueiros",
+      "Trilha curta que conecta as duas praias da ilha"
+    ],
+    "tags": [
+      "Passeio de Barco",
+      "Mergulho",
+      "Tartarugas",
+      "Águas Cristalinas"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Águas calmas e cristalinas da Praia da Terra na Ilha das Couves"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.422381,
+        -44.86243
+      ],
+      [
+        -23.423381,
+        -44.86043
+      ],
+      [
+        -23.423619,
+        -44.86057
+      ],
+      [
+        -23.422619,
+        -44.86257
+      ]
+    ]
+  },
+  {
+    "id": "praia-do-prumirim",
+    "name": "Praia do Prumirim",
+    "subtitle": "Beleza selvagem, areia dourada e travessia para a Ilha do Prumirim",
+    "region": "norte",
+    "mapX": 79,
+    "mapY": 28,
+    "coords": [
+      -23.3805,
+      -44.9575
+    ],
+    "shortDesc": "Areia grossa que canta, mar exuberante com cachoeira a poucos minutos.",
+    "fullDesc": "A Praia do Prumirim impressiona pela sua extensão majestosa, areia grossa e amarelada e mar aberto de águas límpidas. No canto norte, um rio sereno encontra o oceano e serve como ponto de partida dos pequenos barcos que levam turistas em 5 minutos até a deslumbrante Ilha do Prumirim.",
+    "access": {
+      "tipo": "Condomínio com rua asfaltada",
+      "descricao": "Localizada no km 29 da Rodovia Rio-Santos (BR-101 ao norte). A entrada é pelo Condomínio Prumirim com descida pavimentada."
+    },
+    "parking": {
+      "status": "Zona Azul nas ruas do condomínio",
+      "descricao": "Estacionamento com cobrança de Zona Azul em vias sinalizadas dentro do loteamento e estacionamentos particulares."
+    },
+    "infrastructure": [
+      "Quiosques tradicionais com frutos do mar frescos",
+      "Barqueiros licenciados para travessia à Ilha do Prumirim",
+      "Cachoeira do Prumirim a 1 km na rodovia"
+    ],
+    "tags": [
+      "Cachoeira Próxima",
+      "Ilha do Prumirim",
+      "Gastronomia Caiçara"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Oceano azul e areia dourada da Praia do Prumirim"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.377378,
+        -44.960356
+      ],
+      [
+        -23.380375,
+        -44.957359
+      ],
+      [
+        -23.383372,
+        -44.954063
+      ],
+      [
+        -23.383628,
+        -44.954337
+      ],
+      [
+        -23.380625,
+        -44.957641
+      ],
+      [
+        -23.377622,
+        -44.960644
+      ]
+    ]
+  },
+  {
+    "id": "praia-do-cedro",
+    "name": "Praia do Cedro (Cedrinho)",
+    "subtitle": "Refúgio secreto de águas esmeralda encravado na mata",
+    "region": "centro",
+    "mapX": 55,
+    "mapY": 55,
+    "coords": [
+      -23.4561,
+      -45.0298
+    ],
+    "shortDesc": "Acesso por trilha a pé, visual selvagem e águas cristalinas com vida marinha.",
+    "fullDesc": "Também conhecida como Cedrinho, esta pequena praia é um dos recantos mais preservados da região central de Ubatuba. Por não ter acesso para veículos até a areia, mantém um clima de tranquilidade rústica. Suas águas calmas e límpidas de tom esmeralda são protegidas por encostas rochosas cobertas pela Mata Atlântica.",
+    "access": {
+      "tipo": "Estrada de terra + Trilha a pé de 15 minutos",
+      "descricao": "Saindo da Praia Grande ou Vermelha do Centro, segue-se por uma estrada de terra estreita até o mirante no topo da colina. De lá, a descida é feita por uma trilha de pedestres calçada de cerca de 15 minutos em meio à floresta."
+    },
+    "parking": {
+      "status": "Estacionamento rústico no início da trilha",
+      "descricao": "Há um espaço improvisado no final da estrada de terra onde moradores locais orientam o estacionamento com valor fixo diário."
+    },
+    "infrastructure": [
+      "Quiosque rústico com bebidas e petiscos na temporada",
+      "Aluguel de máscaras de snorkel e coletes",
+      "Mirante com vista panorâmica para a Ilha Anchieta"
+    ],
+    "tags": [
+      "Trilha",
+      "Preservada",
+      "Snorkel",
+      "Refúgio"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Águas esmeralda e enseada protegida do Cedrinho"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.4532,
+        -45.0328
+      ],
+      [
+        -23.4542,
+        -45.0268
+      ],
+      [
+        -23.4588,
+        -45.0272
+      ],
+      [
+        -23.4582,
+        -45.0328
+      ]
+    ]
+  },
+  {
+    "id": "praia-da-lagoinha",
+    "name": "Praia da Lagoinha",
+    "subtitle": "Mar calmo como piscina e início da Trilha das Sete Praias",
+    "region": "sul",
+    "mapX": 28,
+    "mapY": 76,
+    "coords": [
+      -23.5245,
+      -45.1915
+    ],
+    "shortDesc": "Águas tranquilas ideais para crianças e ponto de partida para a clássica Trilha das 7 Praias.",
+    "fullDesc": "A Praia da Lagoinha, situada no sul de Ubatuba, é caracterizada por suas águas serenas, areia firme e extensão generosa de 3 km compartilhada com a Praia do Sapê e Maranduba. No seu canto esquerdo deságua o Rio Lagoinha e tem início a famosa Trilha das 7 Praias, uma das caminhadas ecológicas mais deslumbrantes do Brasil.",
+    "access": {
+      "tipo": "Asfalto direto pela Rio-Santos",
+      "descricao": "Fácil acesso com entrada asfaltada pelo bairro Lagoinha na altura do km 72 da BR-101."
+    },
+    "parking": {
+      "status": "Vagas nas ruas do bairro e Zona Azul",
+      "descricao": "Estacionamento fácil em ruas residenciais com sinalização de Zona Azul e estacionamentos para trilheiros no canto esquerdo."
+    },
+    "infrastructure": [
+      "Ponto de início da Trilha das Sete Praias",
+      "Passeios de barco e lancha para praias desertas",
+      "Quiosques familiares à beira-mar"
+    ],
+    "tags": [
+      "Mar Calmo",
+      "Familiar",
+      "Trilha das 7 Praias",
+      "Sul"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Águas mansas da Praia da Lagoinha"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.52231,
+        -45.197425
+      ],
+      [
+        -23.524309,
+        -45.191427
+      ],
+      [
+        -23.526309,
+        -45.185128
+      ],
+      [
+        -23.526691,
+        -45.185272
+      ],
+      [
+        -23.524691,
+        -45.191573
+      ],
+      [
+        -23.52269,
+        -45.197575
+      ]
+    ]
+  },
+  {
+    "id": "ilha-anchieta",
+    "name": "Parque Estadual Ilha Anchieta",
+    "subtitle": "História fascinante, ruínas históricas e santuário ecológico",
+    "region": "ilhas",
+    "mapX": 42,
+    "mapY": 78,
+    "coords": [
+      -23.5358,
+      -45.0645
+    ],
+    "shortDesc": "Ruínas do antigo presídio, trilhas subaquáticas, praias paradisíacas e fauna preservada.",
+    "fullDesc": "A Ilha Anchieta é a segunda maior ilha do litoral de São Paulo e um dos parques estaduais mais visitados. Além de praias deslumbrantes de águas calmas como a Praia das Palmas e Praia do Sul, abriga o complexo histórico do antigo presídio de segurança máxima desativado na década de 1950.",
+    "access": {
+      "tipo": "Acesso marítimo por Escunas ou Lanchas",
+      "descricao": "Passeios regulares de escuna partem do Cais do Saco da Ribeira ou da Praia da Enseada e levam cerca de 30 a 45 minutos."
+    },
+    "parking": {
+      "status": "Estacionamento nas marinas do Saco da Ribeira",
+      "descricao": "Estacionamentos particulares cobertos e seguros próximos aos piers de embarque no Saco da Ribeira."
+    },
+    "infrastructure": [
+      "Centro de visitantes com monitores ambientais",
+      "Museu histórico das ruínas prisionais",
+      "Trilhas ecológicas autoguiadas",
+      "Praias preservadas excelentes para mergulho livre"
+    ],
+    "tags": [
+      "Ilha Histórica",
+      "Parque Estadual",
+      "Ruínas",
+      "Mergulho",
+      "Trilhas"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Praia das Palmas na Ilha Anchieta"
+      }
+    ],
+    "areaCoords": [
+      [
+        -23.5275,
+        -45.0745
+      ],
+      [
+        -23.5295,
+        -45.0525
+      ],
+      [
+        -23.5445,
+        -45.0555
+      ],
+      [
+        -23.5425,
+        -45.0765
+      ]
+    ]
+  },
+  {
+    "id": "praia-das-toninhas",
+    "name": "Praia das Toninhas",
+    "subtitle": "Excelente infraestrutura para famílias e canto esquerdo com boas ondas para surf",
+    "region": "centro",
+    "mapX": 50,
+    "mapY": 61,
+    "coords": [
+      -23.4805,
+      -45.0775
+    ],
+    "areaCoords": [
+      [
+        -23.478354,
+        -45.080385
+      ],
+      [
+        -23.480355,
+        -45.077383
+      ],
+      [
+        -23.482657,
+        -45.074082
+      ],
+      [
+        -23.482943,
+        -45.074318
+      ],
+      [
+        -23.480645,
+        -45.077617
+      ],
+      [
+        -23.478646,
+        -45.080615
+      ]
+    ],
+    "shortDesc": "Vizinha da Praia Grande com ambiente mais sossegado, ótima gastronomia e areias brancas.",
+    "fullDesc": "A Praia das Toninhas é uma das preferidas por famílias e casais. Possui mais de 1.300 metros de extensão com quiosques estruturados, areia fofa e mar versátil: calmo no canto direito para crianças e com ondas perfeitas para surfe no canto esquerdo.",
+    "access": {
+      "tipo": "Asfalto direto pela Rodovia Rio-Santos",
+      "descricao": "Acesso direto pelas entradas no km 56 da BR-101 com sinalização viária completa."
+    },
+    "parking": {
+      "status": "Vagas na orla com Zona Azul",
+      "descricao": "Ampla área de estacionamento regulamentada pela Zona Azul de Ubatuba."
+    },
+    "infrastructure": [
+      "Quiosques com frutos do mar frescos e petiscos",
+      "Duchas de água doce e sanitários",
+      "Posto de salva-vidas permanente",
+      "Aluguel de pranchas, caiaques e SUP"
+    ],
+    "tags": [
+      "Familiar",
+      "Surf e Banho",
+      "Quiosques",
+      "Fácil Acesso"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Orla arborizada da Praia das Toninhas"
+      }
+    ]
+  },
+  {
+    "id": "praia-do-lazaro",
+    "name": "Praia do Lázaro",
+    "subtitle": "Mar calmo como uma lagoa, sombra de amendoeiras e vista para o Pico do Corcovado",
+    "region": "sul",
+    "mapX": 35,
+    "mapY": 72,
+    "coords": [
+      -23.5065,
+      -45.135
+    ],
+    "areaCoords": [
+      [
+        -23.504072,
+        -45.1384
+      ],
+      [
+        -23.506376,
+        -45.134894
+      ],
+      [
+        -23.508381,
+        -45.132388
+      ],
+      [
+        -23.508619,
+        -45.132612
+      ],
+      [
+        -23.506624,
+        -45.135106
+      ],
+      [
+        -23.504328,
+        -45.1386
+      ]
+    ],
+    "shortDesc": "Perfeita para crianças e esportes náuticos, com águas rasas, cristalinas e calmas.",
+    "fullDesc": "A Praia do Lázaro é um cartão-postal do sul de Ubatuba. Com quase 1,5 km de faixa de areia plana e compacta, suas águas são praticamente desprovidas de ondas fortes, ideais para passeios de Stand-up Paddle, caiaque e natação segura para toda a família.",
+    "access": {
+      "tipo": "Ruas pavimentadas em condomínio/bairro residencial",
+      "descricao": "Entrada na altura do km 63 da Rodovia Rio-Santos (BR-101 Sul)."
+    },
+    "parking": {
+      "status": "Zona Azul e Estacionamentos particulares",
+      "descricao": "Vagas sinalizadas de Zona Azul nas ruas de acesso ou estacionamentos privativos próximos."
+    },
+    "infrastructure": [
+      "Quiosques sombreados por amendoeiras",
+      "Aluguel de pranchas de SUP e caiaques",
+      "Acesso a pé para as praias da Sununga e Domingas Dias"
+    ],
+    "tags": [
+      "Mar Calmo",
+      "Passeio em Família",
+      "SUP",
+      "Sul"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Águas tranquilas da Praia do Lázaro com o Corcovado ao fundo"
+      }
+    ]
+  },
+  {
+    "id": "praia-da-sununga",
+    "name": "Praia da Sununga",
+    "subtitle": "Capital mundial do Skimboard com ondas de tombo e a misteriosa Gruta que Chora",
+    "region": "sul",
+    "mapX": 36,
+    "mapY": 74,
+    "coords": [
+      -23.5142,
+      -45.1352
+    ],
+    "areaCoords": [
+      [
+        -23.513078,
+        -45.137437
+      ],
+      [
+        -23.514082,
+        -45.135129
+      ],
+      [
+        -23.515086,
+        -45.133421
+      ],
+      [
+        -23.515314,
+        -45.133579
+      ],
+      [
+        -23.514318,
+        -45.135271
+      ],
+      [
+        -23.513322,
+        -45.137563
+      ]
+    ],
+    "shortDesc": "Famosa pelas ondas fortes e cavadas, além da curiosa atração natural 'Gruta que Chora'.",
+    "fullDesc": "A Sununga é mundialmente famosa no cenário de esportes radicais, sendo sede de etapas do circuito mundial de Skimboard. Seu mar de tombo exige muita cautela para banhistas, mas proporciona um visual espetacular da arrebentação contra os costões de pedra.",
+    "access": {
+      "tipo": "Acesso a pé pelo canto esquerdo do Lázaro ou rua própria",
+      "descricao": "Seguindo pelo bairro do Lázaro ou acessando pela estradinha à esquerda."
+    },
+    "parking": {
+      "status": "Zona Azul e vagas de rua",
+      "descricao": "Vagas no bolsão de estacionamento próximo à Gruta que Chora."
+    },
+    "infrastructure": [
+      "Quiosques rústicos com vista privilegiada",
+      "Ponto turístico Gruta que Chora",
+      "Monitores e salva-vidas locais"
+    ],
+    "tags": [
+      "Skimboard",
+      "Gruta que Chora",
+      "Ondas Fortes",
+      "Sul"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Ondas impactantes na Praia da Sununga"
+      }
+    ]
+  },
+  {
+    "id": "praia-de-maranduba",
+    "name": "Praia de Maranduba",
+    "subtitle": "Polo de lazer familiar com passeios de escuna, toboágua no mar e infraestrutura 24h",
+    "region": "sul",
+    "mapX": 20,
+    "mapY": 80,
+    "coords": [
+      -23.531397,
+      -45.222132
+    ],
+    "areaCoords": [
+      [
+        -23.53376,
+        -45.226047
+      ],
+      [
+        -23.533623,
+        -45.225996
+      ],
+      [
+        -23.533505,
+        -45.22591
+      ],
+      [
+        -23.533387,
+        -45.225867
+      ],
+      [
+        -23.533274,
+        -45.225784
+      ],
+      [
+        -23.533117,
+        -45.225742
+      ],
+      [
+        -23.532999,
+        -45.225656
+      ],
+      [
+        -23.532862,
+        -45.22562
+      ],
+      [
+        -23.532718,
+        -45.225567
+      ],
+      [
+        -23.5326,
+        -45.225481
+      ],
+      [
+        -23.532501,
+        -45.225446
+      ],
+      [
+        -23.532364,
+        -45.225395
+      ],
+      [
+        -23.532228,
+        -45.225298
+      ],
+      [
+        -23.532128,
+        -45.225224
+      ],
+      [
+        -23.531996,
+        -45.225172
+      ],
+      [
+        -23.531889,
+        -45.225062
+      ],
+      [
+        -23.531811,
+        -45.224976
+      ],
+      [
+        -23.531732,
+        -45.22489
+      ],
+      [
+        -23.531652,
+        -45.224804
+      ],
+      [
+        -23.531552,
+        -45.224687
+      ],
+      [
+        -23.531505,
+        -45.224544
+      ],
+      [
+        -23.531437,
+        -45.224435
+      ],
+      [
+        -23.531347,
+        -45.224286
+      ],
+      [
+        -23.531299,
+        -45.22413
+      ],
+      [
+        -23.531266,
+        -45.22398
+      ],
+      [
+        -23.531201,
+        -45.223877
+      ],
+      [
+        -23.531111,
+        -45.223728
+      ],
+      [
+        -23.53108,
+        -45.223615
+      ],
+      [
+        -23.531001,
+        -45.223529
+      ],
+      [
+        -23.530947,
+        -45.223364
+      ],
+      [
+        -23.530922,
+        -45.223271
+      ],
+      [
+        -23.530844,
+        -45.223185
+      ],
+      [
+        -23.530797,
+        -45.223042
+      ],
+      [
+        -23.530729,
+        -45.222933
+      ],
+      [
+        -23.53065,
+        -45.222804
+      ],
+      [
+        -23.53058,
+        -45.222689
+      ],
+      [
+        -23.530501,
+        -45.222604
+      ],
+      [
+        -23.530414,
+        -45.222461
+      ],
+      [
+        -23.530324,
+        -45.222312
+      ],
+      [
+        -23.530293,
+        -45.222198
+      ],
+      [
+        -23.530214,
+        -45.222113
+      ],
+      [
+        -23.530167,
+        -45.221969
+      ],
+      [
+        -23.530099,
+        -45.22186
+      ],
+      [
+        -23.530009,
+        -45.221711
+      ],
+      [
+        -23.52997,
+        -45.221583
+      ],
+      [
+        -23.529891,
+        -45.221454
+      ],
+      [
+        -23.529844,
+        -45.221304
+      ],
+      [
+        -23.529806,
+        -45.221175
+      ],
+      [
+        -23.529781,
+        -45.221083
+      ],
+      [
+        -23.529702,
+        -45.220997
+      ],
+      [
+        -23.529655,
+        -45.220853
+      ],
+      [
+        -23.529576,
+        -45.220724
+      ],
+      [
+        -23.529545,
+        -45.22061
+      ],
+      [
+        -23.529489,
+        -45.220556
+      ],
+      [
+        -23.5294,
+        -45.220457
+      ],
+      [
+        -23.529321,
+        -45.220329
+      ],
+      [
+        -23.529242,
+        -45.220242
+      ],
+      [
+        -23.529155,
+        -45.220101
+      ],
+      [
+        -23.529085,
+        -45.219986
+      ],
+      [
+        -23.529016,
+        -45.219912
+      ],
+      [
+        -23.528928,
+        -45.219813
+      ],
+      [
+        -23.528849,
+        -45.219685
+      ],
+      [
+        -23.52877,
+        -45.2196
+      ],
+      [
+        -23.528682,
+        -45.219457
+      ],
+      [
+        -23.528613,
+        -45.219341
+      ],
+      [
+        -23.528534,
+        -45.219256
+      ],
+      [
+        -23.528435,
+        -45.219093
+      ],
+      [
+        -23.528404,
+        -45.21898
+      ],
+      [
+        -23.528325,
+        -45.218894
+      ],
+      [
+        -23.52827,
+        -45.218729
+      ],
+      [
+        -23.528247,
+        -45.218636
+      ],
+      [
+        -23.528168,
+        -45.218551
+      ],
+      [
+        -23.528114,
+        -45.218386
+      ],
+      [
+        -23.528074,
+        -45.218257
+      ],
+      [
+        -23.528043,
+        -45.218149
+      ],
+      [
+        -23.527964,
+        -45.218021
+      ],
+      [
+        -23.527916,
+        -45.217871
+      ],
+      [
+        -23.527878,
+        -45.217742
+      ],
+      [
+        -23.527853,
+        -45.21765
+      ],
+      [
+        -23.527774,
+        -45.217564
+      ],
+      [
+        -23.527719,
+        -45.217399
+      ],
+      [
+        -23.527696,
+        -45.217306
+      ],
+      [
+        -23.527617,
+        -45.21722
+      ],
+      [
+        -23.527563,
+        -45.217055
+      ],
+      [
+        -23.527523,
+        -45.216927
+      ],
+      [
+        -23.527478,
+        -45.216771
+      ],
+      [
+        -23.527478,
+        -45.216642
+      ],
+      [
+        -23.527445,
+        -45.21654
+      ],
+      [
+        -23.527399,
+        -45.216386
+      ],
+      [
+        -23.527399,
+        -45.216256
+      ],
+      [
+        -23.52736,
+        -45.216127
+      ],
+      [
+        -23.52736,
+        -45.215998
+      ],
+      [
+        -23.527321,
+        -45.21587
+      ],
+      [
+        -23.527321,
+        -45.215742
+      ],
+      [
+        -23.527281,
+        -45.215613
+      ],
+      [
+        -23.527291,
+        -45.21539
+      ],
+      [
+        -23.527432,
+        -45.215225
+      ],
+      [
+        -23.527583,
+        -45.215166
+      ],
+      [
+        -23.527726,
+        -45.215116
+      ],
+      [
+        -23.527869,
+        -45.215114
+      ],
+      [
+        -23.527987,
+        -45.215114
+      ],
+      [
+        -23.528151,
+        -45.215121
+      ],
+      [
+        -23.528323,
+        -45.215238
+      ],
+      [
+        -23.528413,
+        -45.215335
+      ],
+      [
+        -23.528493,
+        -45.215421
+      ],
+      [
+        -23.528593,
+        -45.215538
+      ],
+      [
+        -23.528648,
+        -45.215703
+      ],
+      [
+        -23.528672,
+        -45.215796
+      ],
+      [
+        -23.528762,
+        -45.215905
+      ],
+      [
+        -23.528772,
+        -45.216073
+      ],
+      [
+        -23.528806,
+        -45.216175
+      ],
+      [
+        -23.52885,
+        -45.216331
+      ],
+      [
+        -23.52885,
+        -45.216458
+      ],
+      [
+        -23.52889,
+        -45.216587
+      ],
+      [
+        -23.528892,
+        -45.216744
+      ],
+      [
+        -23.52889,
+        -45.216846
+      ],
+      [
+        -23.528929,
+        -45.216974
+      ],
+      [
+        -23.528931,
+        -45.21713
+      ],
+      [
+        -23.528929,
+        -45.217232
+      ],
+      [
+        -23.528968,
+        -45.217361
+      ],
+      [
+        -23.528968,
+        -45.217488
+      ],
+      [
+        -23.529002,
+        -45.217591
+      ],
+      [
+        -23.529047,
+        -45.217747
+      ],
+      [
+        -23.529047,
+        -45.217875
+      ],
+      [
+        -23.529081,
+        -45.217977
+      ],
+      [
+        -23.529121,
+        -45.218106
+      ],
+      [
+        -23.529159,
+        -45.218235
+      ],
+      [
+        -23.529199,
+        -45.218364
+      ],
+      [
+        -23.529239,
+        -45.218492
+      ],
+      [
+        -23.529262,
+        -45.218585
+      ],
+      [
+        -23.529341,
+        -45.218671
+      ],
+      [
+        -23.52938,
+        -45.2188
+      ],
+      [
+        -23.529459,
+        -45.218886
+      ],
+      [
+        -23.529506,
+        -45.219029
+      ],
+      [
+        -23.529585,
+        -45.219158
+      ],
+      [
+        -23.529616,
+        -45.219272
+      ],
+      [
+        -23.529695,
+        -45.219358
+      ],
+      [
+        -23.529742,
+        -45.219501
+      ],
+      [
+        -23.52981,
+        -45.21961
+      ],
+      [
+        -23.52988,
+        -45.219726
+      ],
+      [
+        -23.529958,
+        -45.219812
+      ],
+      [
+        -23.530037,
+        -45.219939
+      ],
+      [
+        -23.530116,
+        -45.220025
+      ],
+      [
+        -23.530204,
+        -45.220168
+      ],
+      [
+        -23.530292,
+        -45.220317
+      ],
+      [
+        -23.530325,
+        -45.22043
+      ],
+      [
+        -23.530381,
+        -45.220485
+      ],
+      [
+        -23.53047,
+        -45.220583
+      ],
+      [
+        -23.530549,
+        -45.220713
+      ],
+      [
+        -23.530617,
+        -45.220786
+      ],
+      [
+        -23.530706,
+        -45.220884
+      ],
+      [
+        -23.530785,
+        -45.221013
+      ],
+      [
+        -23.530853,
+        -45.221086
+      ],
+      [
+        -23.530931,
+        -45.221172
+      ],
+      [
+        -23.53101,
+        -45.221258
+      ],
+      [
+        -23.531089,
+        -45.221344
+      ],
+      [
+        -23.531178,
+        -45.221441
+      ],
+      [
+        -23.531266,
+        -45.221584
+      ],
+      [
+        -23.531345,
+        -45.221713
+      ],
+      [
+        -23.531433,
+        -45.221862
+      ],
+      [
+        -23.531481,
+        -45.222011
+      ],
+      [
+        -23.531513,
+        -45.222119
+      ],
+      [
+        -23.531594,
+        -45.222254
+      ],
+      [
+        -23.531626,
+        -45.22241
+      ],
+      [
+        -23.531702,
+        -45.22249
+      ],
+      [
+        -23.531757,
+        -45.222655
+      ],
+      [
+        -23.531795,
+        -45.222784
+      ],
+      [
+        -23.531827,
+        -45.222892
+      ],
+      [
+        -23.531905,
+        -45.22302
+      ],
+      [
+        -23.531938,
+        -45.223134
+      ],
+      [
+        -23.532005,
+        -45.223202
+      ],
+      [
+        -23.532092,
+        -45.223344
+      ],
+      [
+        -23.532171,
+        -45.223472
+      ],
+      [
+        -23.532241,
+        -45.223588
+      ],
+      [
+        -23.532297,
+        -45.22365
+      ],
+      [
+        -23.532415,
+        -45.223736
+      ],
+      [
+        -23.532494,
+        -45.223822
+      ],
+      [
+        -23.532612,
+        -45.223907
+      ],
+      [
+        -23.532713,
+        -45.224016
+      ],
+      [
+        -23.5328,
+        -45.224159
+      ],
+      [
+        -23.532879,
+        -45.224288
+      ],
+      [
+        -23.532949,
+        -45.224403
+      ],
+      [
+        -23.533017,
+        -45.224476
+      ],
+      [
+        -23.533106,
+        -45.224575
+      ],
+      [
+        -23.533185,
+        -45.224703
+      ],
+      [
+        -23.533254,
+        -45.224777
+      ],
+      [
+        -23.533342,
+        -45.224876
+      ],
+      [
+        -23.533421,
+        -45.225003
+      ],
+      [
+        -23.53349,
+        -45.225077
+      ],
+      [
+        -23.533556,
+        -45.225152
+      ],
+      [
+        -23.533643,
+        -45.225216
+      ],
+      [
+        -23.533742,
+        -45.225251
+      ],
+      [
+        -23.533893,
+        -45.22531
+      ],
+      [
+        -23.533972,
+        -45.225396
+      ],
+      [
+        -23.53409,
+        -45.225439
+      ],
+      [
+        -23.534186,
+        -45.225537
+      ],
+      [
+        -23.534273,
+        -45.225602
+      ],
+      [
+        -23.534391,
+        -45.225645
+      ],
+      [
+        -23.534528,
+        -45.225743
+      ],
+      [
+        -23.534658,
+        -45.225839
+      ],
+      [
+        -23.534719,
+        -45.225911
+      ],
+      [
+        -23.534804,
+        -45.225936
+      ],
+      [
+        -23.534923,
+        -45.22598
+      ],
+      [
+        -23.535035,
+        -45.226021
+      ],
+      [
+        -23.535192,
+        -45.226064
+      ],
+      [
+        -23.535335,
+        -45.226117
+      ],
+      [
+        -23.53543,
+        -45.226193
+      ],
+      [
+        -23.535527,
+        -45.226188
+      ],
+      [
+        -23.53567,
+        -45.226238
+      ],
+      [
+        -23.535788,
+        -45.226281
+      ],
+      [
+        -23.535906,
+        -45.226324
+      ],
+      [
+        -23.536057,
+        -45.226383
+      ],
+      [
+        -23.536153,
+        -45.226481
+      ],
+      [
+        -23.536271,
+        -45.226568
+      ],
+      [
+        -23.536361,
+        -45.226665
+      ],
+      [
+        -23.536441,
+        -45.226751
+      ],
+      [
+        -23.536541,
+        -45.226868
+      ],
+      [
+        -23.536588,
+        -45.227012
+      ],
+      [
+        -23.536666,
+        -45.22714
+      ],
+      [
+        -23.536714,
+        -45.22729
+      ],
+      [
+        -23.536754,
+        -45.227419
+      ],
+      [
+        -23.536798,
+        -45.227575
+      ],
+      [
+        -23.536789,
+        -45.227795
+      ],
+      [
+        -23.536626,
+        -45.227974
+      ],
+      [
+        -23.536447,
+        -45.227987
+      ],
+      [
+        -23.536304,
+        -45.227985
+      ],
+      [
+        -23.536161,
+        -45.227935
+      ],
+      [
+        -23.536043,
+        -45.227893
+      ],
+      [
+        -23.535924,
+        -45.22785
+      ],
+      [
+        -23.535831,
+        -45.227813
+      ],
+      [
+        -23.535713,
+        -45.227813
+      ],
+      [
+        -23.535571,
+        -45.227765
+      ],
+      [
+        -23.535452,
+        -45.227721
+      ],
+      [
+        -23.535315,
+        -45.22767
+      ],
+      [
+        -23.535197,
+        -45.227584
+      ],
+      [
+        -23.535098,
+        -45.227549
+      ],
+      [
+        -23.534961,
+        -45.227498
+      ],
+      [
+        -23.534812,
+        -45.22739
+      ],
+      [
+        -23.534733,
+        -45.227305
+      ],
+      [
+        -23.534615,
+        -45.227219
+      ],
+      [
+        -23.534525,
+        -45.227122
+      ],
+      [
+        -23.534447,
+        -45.227036
+      ],
+      [
+        -23.534351,
+        -45.226929
+      ],
+      [
+        -23.534273,
+        -45.226757
+      ],
+      [
+        -23.5342,
+        -45.226681
+      ],
+      [
+        -23.534121,
+        -45.226551
+      ],
+      [
+        -23.534053,
+        -45.226478
+      ],
+      [
+        -23.533964,
+        -45.22638
+      ],
+      [
+        -23.533885,
+        -45.226251
+      ],
+      [
+        -23.533818,
+        -45.226178
+      ],
+      [
+        -23.53375,
+        -45.226103
+      ],
+      [
+        -23.533663,
+        -45.226039
+      ],
+      [
+        -23.533564,
+        -45.226004
+      ],
+      [
+        -23.533446,
+        -45.225961
+      ],
+      [
+        -23.533546,
+        -45.225637
+      ],
+      [
+        -23.533664,
+        -45.22568
+      ],
+      [
+        -23.533801,
+        -45.225731
+      ],
+      [
+        -23.53395,
+        -45.225839
+      ],
+      [
+        -23.53404,
+        -45.225936
+      ],
+      [
+        -23.534129,
+        -45.226033
+      ],
+      [
+        -23.534208,
+        -45.226162
+      ],
+      [
+        -23.534277,
+        -45.226236
+      ],
+      [
+        -23.534365,
+        -45.226335
+      ],
+      [
+        -23.534444,
+        -45.226463
+      ],
+      [
+        -23.534529,
+        -45.226557
+      ],
+      [
+        -23.534607,
+        -45.226729
+      ],
+      [
+        -23.534669,
+        -45.226794
+      ],
+      [
+        -23.534749,
+        -45.22688
+      ],
+      [
+        -23.534815,
+        -45.226955
+      ],
+      [
+        -23.534933,
+        -45.227039
+      ],
+      [
+        -23.535012,
+        -45.227126
+      ],
+      [
+        -23.535099,
+        -45.22719
+      ],
+      [
+        -23.535198,
+        -45.227225
+      ],
+      [
+        -23.535335,
+        -45.227276
+      ],
+      [
+        -23.535453,
+        -45.227362
+      ],
+      [
+        -23.535552,
+        -45.227397
+      ],
+      [
+        -23.535669,
+        -45.227439
+      ],
+      [
+        -23.535763,
+        -45.227475
+      ],
+      [
+        -23.535881,
+        -45.227475
+      ],
+      [
+        -23.536024,
+        -45.227524
+      ],
+      [
+        -23.536143,
+        -45.227567
+      ],
+      [
+        -23.536261,
+        -45.227611
+      ],
+      [
+        -23.536354,
+        -45.227647
+      ],
+      [
+        -23.536447,
+        -45.227645
+      ],
+      [
+        -23.536504,
+        -45.227658
+      ],
+      [
+        -23.536497,
+        -45.227665
+      ],
+      [
+        -23.536488,
+        -45.227629
+      ],
+      [
+        -23.536454,
+        -45.227527
+      ],
+      [
+        -23.536416,
+        -45.227398
+      ],
+      [
+        -23.536384,
+        -45.22729
+      ],
+      [
+        -23.536306,
+        -45.227162
+      ],
+      [
+        -23.536273,
+        -45.227048
+      ],
+      [
+        -23.536217,
+        -45.226993
+      ],
+      [
+        -23.536139,
+        -45.226907
+      ],
+      [
+        -23.536071,
+        -45.226832
+      ],
+      [
+        -23.535953,
+        -45.226747
+      ],
+      [
+        -23.535891,
+        -45.226675
+      ],
+      [
+        -23.535806,
+        -45.226648
+      ],
+      [
+        -23.535688,
+        -45.226605
+      ],
+      [
+        -23.53557,
+        -45.226562
+      ],
+      [
+        -23.535477,
+        -45.226526
+      ],
+      [
+        -23.535338,
+        -45.226521
+      ],
+      [
+        -23.535197,
+        -45.226425
+      ],
+      [
+        -23.535104,
+        -45.226392
+      ],
+      [
+        -23.534947,
+        -45.226349
+      ],
+      [
+        -23.534823,
+        -45.226304
+      ],
+      [
+        -23.534706,
+        -45.226262
+      ],
+      [
+        -23.534555,
+        -45.226203
+      ],
+      [
+        -23.534458,
+        -45.226103
+      ],
+      [
+        -23.534352,
+        -45.226027
+      ],
+      [
+        -23.534253,
+        -45.225953
+      ],
+      [
+        -23.534135,
+        -45.22591
+      ],
+      [
+        -23.533986,
+        -45.225803
+      ],
+      [
+        -23.533924,
+        -45.225731
+      ],
+      [
+        -23.533806,
+        -45.225688
+      ],
+      [
+        -23.533727,
+        -45.225602
+      ],
+      [
+        -23.533642,
+        -45.225575
+      ],
+      [
+        -23.533505,
+        -45.225524
+      ],
+      [
+        -23.533356,
+        -45.225416
+      ],
+      [
+        -23.533266,
+        -45.225319
+      ],
+      [
+        -23.533177,
+        -45.225221
+      ],
+      [
+        -23.533098,
+        -45.225092
+      ],
+      [
+        -23.53303,
+        -45.225019
+      ],
+      [
+        -23.532941,
+        -45.224921
+      ],
+      [
+        -23.532862,
+        -45.224791
+      ],
+      [
+        -23.532795,
+        -45.224718
+      ],
+      [
+        -23.532705,
+        -45.224621
+      ],
+      [
+        -23.532617,
+        -45.224478
+      ],
+      [
+        -23.532538,
+        -45.224349
+      ],
+      [
+        -23.532469,
+        -45.224234
+      ],
+      [
+        -23.532412,
+        -45.224173
+      ],
+      [
+        -23.532294,
+        -45.224086
+      ],
+      [
+        -23.532215,
+        -45.224
+      ],
+      [
+        -23.532097,
+        -45.223914
+      ],
+      [
+        -23.531997,
+        -45.223804
+      ],
+      [
+        -23.531909,
+        -45.223662
+      ],
+      [
+        -23.53183,
+        -45.223534
+      ],
+      [
+        -23.531761,
+        -45.223418
+      ],
+      [
+        -23.53167,
+        -45.223314
+      ],
+      [
+        -23.531623,
+        -45.22317
+      ],
+      [
+        -23.531545,
+        -45.223042
+      ],
+      [
+        -23.531497,
+        -45.222892
+      ],
+      [
+        -23.531457,
+        -45.222763
+      ],
+      [
+        -23.531434,
+        -45.22267
+      ],
+      [
+        -23.531352,
+        -45.22258
+      ],
+      [
+        -23.531306,
+        -45.222392
+      ],
+      [
+        -23.531229,
+        -45.222269
+      ],
+      [
+        -23.531183,
+        -45.222119
+      ],
+      [
+        -23.531151,
+        -45.222012
+      ],
+      [
+        -23.531083,
+        -45.221903
+      ],
+      [
+        -23.531004,
+        -45.221774
+      ],
+      [
+        -23.530934,
+        -45.221659
+      ],
+      [
+        -23.530867,
+        -45.221586
+      ],
+      [
+        -23.530788,
+        -45.2215
+      ],
+      [
+        -23.530709,
+        -45.221414
+      ],
+      [
+        -23.530629,
+        -45.221328
+      ],
+      [
+        -23.530541,
+        -45.221229
+      ],
+      [
+        -23.530462,
+        -45.221102
+      ],
+      [
+        -23.530393,
+        -45.221028
+      ],
+      [
+        -23.530305,
+        -45.220929
+      ],
+      [
+        -23.530226,
+        -45.220801
+      ],
+      [
+        -23.530157,
+        -45.220727
+      ],
+      [
+        -23.530057,
+        -45.22061
+      ],
+      [
+        -23.53001,
+        -45.220467
+      ],
+      [
+        -23.529942,
+        -45.220358
+      ],
+      [
+        -23.529872,
+        -45.220243
+      ],
+      [
+        -23.529793,
+        -45.220157
+      ],
+      [
+        -23.529714,
+        -45.220028
+      ],
+      [
+        -23.529636,
+        -45.219942
+      ],
+      [
+        -23.529548,
+        -45.2198
+      ],
+      [
+        -23.529458,
+        -45.219651
+      ],
+      [
+        -23.529427,
+        -45.219538
+      ],
+      [
+        -23.529348,
+        -45.219452
+      ],
+      [
+        -23.529301,
+        -45.219308
+      ],
+      [
+        -23.529222,
+        -45.219179
+      ],
+      [
+        -23.529191,
+        -45.219066
+      ],
+      [
+        -23.529112,
+        -45.21898
+      ],
+      [
+        -23.529073,
+        -45.218851
+      ],
+      [
+        -23.528994,
+        -45.218765
+      ],
+      [
+        -23.528939,
+        -45.2186
+      ],
+      [
+        -23.528901,
+        -45.218472
+      ],
+      [
+        -23.528861,
+        -45.218343
+      ],
+      [
+        -23.528821,
+        -45.218214
+      ],
+      [
+        -23.528783,
+        -45.218085
+      ],
+      [
+        -23.528737,
+        -45.217931
+      ],
+      [
+        -23.528737,
+        -45.217801
+      ],
+      [
+        -23.528704,
+        -45.217699
+      ],
+      [
+        -23.528658,
+        -45.217544
+      ],
+      [
+        -23.528658,
+        -45.217415
+      ],
+      [
+        -23.528619,
+        -45.217286
+      ],
+      [
+        -23.528617,
+        -45.21713
+      ],
+      [
+        -23.528619,
+        -45.217028
+      ],
+      [
+        -23.52858,
+        -45.2169
+      ],
+      [
+        -23.528578,
+        -45.216744
+      ],
+      [
+        -23.52858,
+        -45.216643
+      ],
+      [
+        -23.52854,
+        -45.216514
+      ],
+      [
+        -23.52854,
+        -45.216385
+      ],
+      [
+        -23.528506,
+        -45.216283
+      ],
+      [
+        -23.528462,
+        -45.216127
+      ],
+      [
+        -23.528472,
+        -45.216037
+      ],
+      [
+        -23.528404,
+        -45.215976
+      ],
+      [
+        -23.52835,
+        -45.215811
+      ],
+      [
+        -23.528325,
+        -45.215718
+      ],
+      [
+        -23.528269,
+        -45.215663
+      ],
+      [
+        -23.528191,
+        -45.215577
+      ],
+      [
+        -23.528123,
+        -45.215504
+      ],
+      [
+        -23.528059,
+        -45.215449
+      ],
+      [
+        -23.527987,
+        -45.215456
+      ],
+      [
+        -23.527869,
+        -45.215456
+      ],
+      [
+        -23.527776,
+        -45.215454
+      ],
+      [
+        -23.527683,
+        -45.21549
+      ],
+      [
+        -23.527598,
+        -45.215517
+      ],
+      [
+        -23.527581,
+        -45.215522
+      ],
+      [
+        -23.527591,
+        -45.215557
+      ],
+      [
+        -23.527631,
+        -45.215686
+      ],
+      [
+        -23.527631,
+        -45.215816
+      ],
+      [
+        -23.52767,
+        -45.215944
+      ],
+      [
+        -23.52767,
+        -45.216073
+      ],
+      [
+        -23.527709,
+        -45.216202
+      ],
+      [
+        -23.527709,
+        -45.21633
+      ],
+      [
+        -23.527743,
+        -45.216432
+      ],
+      [
+        -23.527788,
+        -45.216588
+      ],
+      [
+        -23.527788,
+        -45.216717
+      ],
+      [
+        -23.527821,
+        -45.216819
+      ],
+      [
+        -23.527861,
+        -45.216947
+      ],
+      [
+        -23.527885,
+        -45.21704
+      ],
+      [
+        -23.527964,
+        -45.217126
+      ],
+      [
+        -23.528019,
+        -45.217291
+      ],
+      [
+        -23.528042,
+        -45.217384
+      ],
+      [
+        -23.528121,
+        -45.217468
+      ],
+      [
+        -23.528176,
+        -45.217634
+      ],
+      [
+        -23.528216,
+        -45.217763
+      ],
+      [
+        -23.528246,
+        -45.217871
+      ],
+      [
+        -23.528325,
+        -45.217999
+      ],
+      [
+        -23.528372,
+        -45.218149
+      ],
+      [
+        -23.528412,
+        -45.218278
+      ],
+      [
+        -23.528436,
+        -45.218371
+      ],
+      [
+        -23.528515,
+        -45.218456
+      ],
+      [
+        -23.52857,
+        -45.218621
+      ],
+      [
+        -23.528593,
+        -45.218714
+      ],
+      [
+        -23.528672,
+        -45.2188
+      ],
+      [
+        -23.528719,
+        -45.218943
+      ],
+      [
+        -23.528778,
+        -45.219038
+      ],
+      [
+        -23.528857,
+        -45.219125
+      ],
+      [
+        -23.528944,
+        -45.219267
+      ],
+      [
+        -23.529014,
+        -45.219382
+      ],
+      [
+        -23.529093,
+        -45.219467
+      ],
+      [
+        -23.529172,
+        -45.219597
+      ],
+      [
+        -23.52924,
+        -45.21967
+      ],
+      [
+        -23.529329,
+        -45.219768
+      ],
+      [
+        -23.529417,
+        -45.219911
+      ],
+      [
+        -23.529486,
+        -45.220026
+      ],
+      [
+        -23.529565,
+        -45.220111
+      ],
+      [
+        -23.529644,
+        -45.220241
+      ],
+      [
+        -23.529711,
+        -45.220314
+      ],
+      [
+        -23.529813,
+        -45.22043
+      ],
+      [
+        -23.52986,
+        -45.220574
+      ],
+      [
+        -23.529939,
+        -45.220703
+      ],
+      [
+        -23.52997,
+        -45.220817
+      ],
+      [
+        -23.530049,
+        -45.220903
+      ],
+      [
+        -23.530104,
+        -45.221067
+      ],
+      [
+        -23.530144,
+        -45.221196
+      ],
+      [
+        -23.530175,
+        -45.221304
+      ],
+      [
+        -23.530254,
+        -45.221433
+      ],
+      [
+        -23.530293,
+        -45.221561
+      ],
+      [
+        -23.530361,
+        -45.22167
+      ],
+      [
+        -23.530451,
+        -45.221819
+      ],
+      [
+        -23.530482,
+        -45.221933
+      ],
+      [
+        -23.530561,
+        -45.222018
+      ],
+      [
+        -23.530608,
+        -45.222162
+      ],
+      [
+        -23.530676,
+        -45.222271
+      ],
+      [
+        -23.530745,
+        -45.222386
+      ],
+      [
+        -23.530824,
+        -45.222471
+      ],
+      [
+        -23.530912,
+        -45.222614
+      ],
+      [
+        -23.530991,
+        -45.222743
+      ],
+      [
+        -23.531079,
+        -45.222892
+      ],
+      [
+        -23.531112,
+        -45.223005
+      ],
+      [
+        -23.53119,
+        -45.223091
+      ],
+      [
+        -23.531245,
+        -45.223256
+      ],
+      [
+        -23.531269,
+        -45.223349
+      ],
+      [
+        -23.531348,
+        -45.223435
+      ],
+      [
+        -23.531395,
+        -45.223578
+      ],
+      [
+        -23.531463,
+        -45.223687
+      ],
+      [
+        -23.531554,
+        -45.223842
+      ],
+      [
+        -23.531601,
+        -45.224034
+      ],
+      [
+        -23.531631,
+        -45.224136
+      ],
+      [
+        -23.531699,
+        -45.224245
+      ],
+      [
+        -23.531787,
+        -45.224394
+      ],
+      [
+        -23.53182,
+        -45.224507
+      ],
+      [
+        -23.531876,
+        -45.224562
+      ],
+      [
+        -23.531954,
+        -45.224648
+      ],
+      [
+        -23.532033,
+        -45.224734
+      ],
+      [
+        -23.532113,
+        -45.22482
+      ],
+      [
+        -23.532162,
+        -45.224882
+      ],
+      [
+        -23.532266,
+        -45.224916
+      ],
+      [
+        -23.532402,
+        -45.225012
+      ],
+      [
+        -23.532502,
+        -45.225087
+      ],
+      [
+        -23.532601,
+        -45.225122
+      ],
+      [
+        -23.532738,
+        -45.225173
+      ],
+      [
+        -23.532856,
+        -45.225259
+      ],
+      [
+        -23.53295,
+        -45.225292
+      ],
+      [
+        -23.533127,
+        -45.225342
+      ],
+      [
+        -23.533245,
+        -45.225428
+      ],
+      [
+        -23.533402,
+        -45.22547
+      ],
+      [
+        -23.533525,
+        -45.225559
+      ],
+      [
+        -23.533643,
+        -45.225602
+      ],
+      [
+        -23.533761,
+        -45.225688
+      ],
+      [
+        -23.53386,
+        -45.225723
+      ]
+    ],
+    "shortDesc": "Extensa orla de areia firme, quiosques animados, passeios náuticos e comércio vibrante.",
+    "fullDesc": "Maranduba é a porta de entrada para Ubatuba no sentido vindo de Caraguatatuba e São Paulo. Com mar calmo e faixa de areia larga, concentra excelente estrutura de pousadas, restaurantes, passeios de banana-boat e escunas para as ilhas.",
+    "access": {
+      "tipo": "Margens da Rodovia Rio-Santos (BR-101)",
+      "descricao": "Acesso imediato no km 79 da BR-101, com avenida beira-mar contínua."
+    },
+    "parking": {
+      "status": "Centenas de vagas na orla com Zona Azul",
+      "descricao": "Vagas abundantes com cobrança municipal de Zona Azul."
+    },
+    "infrastructure": [
+      "Vários quiosques com música ao vivo e gastronomia",
+      "Passeios de escuna, lancha e caiaques",
+      "Feira de artesanato e comércio ativo"
+    ],
+    "tags": [
+      "Familiar",
+      "Passeio de Escuna",
+      "Comércio",
+      "Sul"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Extensa praia de Maranduba com mar tranquilo"
+      }
+    ]
+  },
+  {
+    "id": "praia-vermelha-do-norte",
+    "name": "Praia Vermelha do Norte",
+    "subtitle": "Ondas potentes de tombo, areia grossa e point histórico do surf em Ubatuba",
+    "region": "norte",
+    "mapX": 58,
+    "mapY": 48,
+    "coords": [
+      -23.4178,
+      -45.0315
+    ],
+    "areaCoords": [
+      [
+        -23.414383,
+        -45.035386
+      ],
+      [
+        -23.417688,
+        -45.03138
+      ],
+      [
+        -23.421393,
+        -45.027674
+      ],
+      [
+        -23.421607,
+        -45.027926
+      ],
+      [
+        -23.417912,
+        -45.03162
+      ],
+      [
+        -23.414617,
+        -45.035614
+      ]
+    ],
+    "shortDesc": "Areia grossa avermelhada, tubos clássicos para surfistas experientes e quiosques descolados.",
+    "fullDesc": "A Vermelha do Norte é consagrada como um dos melhores picos de surfe do litoral brasileiro. Fica bem próxima à rodovia Rio-Santos ao norte da cidade e oferece um cenário com vegetação densa e ondas tubulares cavadas.",
+    "access": {
+      "tipo": "Às margens da Rodovia Rio-Santos",
+      "descricao": "Localizada no km 41 da BR-101 Norte, a 7 km do Centro de Ubatuba."
+    },
+    "parking": {
+      "status": "Bolsão de estacionamento com Zona Azul",
+      "descricao": "Estacionamento à beira da rodovia regulamentado por Zona Azul."
+    },
+    "infrastructure": [
+      "Quiosques temáticos com açaí, sucos e petiscos",
+      "Duchas de água doce",
+      "Escola de surf e aluguel de pranchas"
+    ],
+    "tags": [
+      "Surf Clássico",
+      "Ondas Tubulares",
+      "Norte",
+      "Jovem"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Tubos perfeitos na Praia Vermelha do Norte"
+      }
+    ]
+  },
+  {
+    "id": "praia-de-picinguaba",
+    "name": "Praia de Picinguaba",
+    "subtitle": "Vila caiçara autêntica tombada pelo patrimônio, mar de espelho e saída para a Ilha das Couves",
+    "region": "norte",
+    "mapX": 85,
+    "mapY": 32,
+    "coords": [
+      -23.3762,
+      -44.8825
+    ],
+    "areaCoords": [
+      [
+        -23.372,
+        -44.8875
+      ],
+      [
+        -23.3735,
+        -44.8775
+      ],
+      [
+        -23.3805,
+        -44.8795
+      ],
+      [
+        -23.3795,
+        -44.8895
+      ]
+    ],
+    "shortDesc": "Paz absoluta em uma tradicional vila de pescadores com barcos coloridos e águas calmas.",
+    "fullDesc": "A Vila de Picinguaba é a última praia de Ubatuba antes da divisa com o estado do Rio de Janeiro. Trata-se de uma autêntica colônia de pescadores artesanais inserida no Parque Estadual da Serra do Mar, com culinária caiçara fresca e principal porto de saída para a Ilha das Couves.",
+    "access": {
+      "tipo": "Estrada sinuosa e pavimentada de 3 km a partir da Rio-Santos",
+      "descricao": "Entrada na altura do km 8 da BR-101 Norte até a vila histórica."
+    },
+    "parking": {
+      "status": "Zona Azul na vila e estacionamentos locais",
+      "descricao": "Vagas com Zona Azul nas ruas da vila ou garagens particulares de moradores."
+    },
+    "infrastructure": [
+      "Restaurantes de comida caiçara típica com peixe fresco",
+      "Ponto de embarque dos barqueiros para a Ilha das Couves",
+      "Associação de pescadores artesanais"
+    ],
+    "tags": [
+      "Vila Caiçara",
+      "Passeio de Barco",
+      "Ilha das Couves",
+      "Histórica"
+    ],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Barcos coloridos e águas serenas de Picinguaba"
+      }
+    ]
+  }
+]
