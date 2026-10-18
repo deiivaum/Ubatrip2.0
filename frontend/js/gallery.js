@@ -15,19 +15,53 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loginPrompt) loginPrompt.style.display = 'none';
     }
 
-    // Modal para expandir APENAS a imagem com X para voltar
+    function resizeModalImage() {
+        if (!modalImg || !modal || !modal.classList.contains('active')) return;
+        const natW = modalImg.naturalWidth || 1000;
+        const natH = modalImg.naturalHeight || 700;
+        const aspect = natW / natH;
+
+        // Limites confortáveis para ocupar área expressiva da tela
+        const maxW = Math.min(window.innerWidth * 0.90, 1200);
+        const maxH = Math.min(window.innerHeight * 0.86, 850);
+
+        let targetW = maxW;
+        let targetH = targetW / aspect;
+
+        if (targetH > maxH) {
+            targetH = maxH;
+            targetW = targetH * aspect;
+        }
+
+        modalImg.style.width = Math.round(targetW) + 'px';
+        modalImg.style.height = Math.round(targetH) + 'px';
+    }
+
+    if (modalImg) {
+        modalImg.addEventListener('load', resizeModalImage);
+        window.addEventListener('resize', resizeModalImage);
+    }
+
+    // Modal para expandir APENAS a imagem em tamanho grande com X para voltar
     window.openImageModal = function(src) {
         if (!modal || !modalImg) return;
         modalImg.src = src;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Trava scroll de fundo
+        if (modalImg.complete) {
+            resizeModalImage();
+        }
     };
 
     window.closeImageModal = function() {
         if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = 'auto'; // Restaura scroll
-        if (modalImg) modalImg.src = '';
+        if (modalImg) {
+            modalImg.src = '';
+            modalImg.style.width = '';
+            modalImg.style.height = '';
+        }
     };
 
     // Fechar modal ao pressionar tecla ESC
