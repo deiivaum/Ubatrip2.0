@@ -41,6 +41,14 @@ function getPraiasData() {
 
 function savePraiasData(data) {
     fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
+    try {
+        const frontDataPath = path.join(__dirname, '../../frontend/js/praias-data.js');
+        if (fs.existsSync(frontDataPath)) {
+            fs.writeFileSync(frontDataPath, 'var PRAIAS_DATA = ' + JSON.stringify(data, null, 2) + ';\n', 'utf8');
+        }
+    } catch (e) {
+        console.warn('Aviso: Não foi possível sincronizar praias-data.js:', e.message);
+    }
 }
 
 function slugify(text) {
@@ -187,7 +195,9 @@ router.put('/:id/area', (req, res) => {
     if (coords && Array.isArray(coords)) {
         praia.coords = coords;
     }
-    if (areaCoords && Array.isArray(areaCoords)) {
+    if (areaCoords === null || (Array.isArray(areaCoords) && areaCoords.length === 0)) {
+        praia.areaCoords = null;
+    } else if (areaCoords && Array.isArray(areaCoords)) {
         praia.areaCoords = areaCoords;
     }
 

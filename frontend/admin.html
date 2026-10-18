@@ -63,43 +63,126 @@
             </select>
         </div>
 
-        <!-- Card de Edição de Coordenadas Geográficas (GPS) e Mapa da Praia -->
-        <div class="upload-card" style="max-width: 750px; margin-bottom: 2.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h3 style="margin: 0; font-family: var(--font-serif); font-size: 1.4rem;">📍 Coordenadas Geográficas (GPS)</h3>
-                <!-- Alternador Relevo / Satélite no Admin -->
-                <div class="google-layer-widget" style="position: static; box-shadow: none; padding: 2px;">
-                    <button type="button" class="google-btn-tab active" id="btn-admin-terrain">
-                        <span class="g-icon">⛰️</span> Relevo
+        <!-- Card de Edição de Coordenadas Geográficas (GPS) e Mapa da Praia com Demarcação de Área -->
+        <div class="upload-card" style="max-width: 850px; margin-bottom: 2.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.8rem;">
+                <div>
+                    <h3 style="margin: 0 0 4px; font-family: var(--font-serif); font-size: 1.45rem;">📍 GPS & Demarcação de Área no Mapa</h3>
+                    <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                        <span id="admin-area-status" class="sand-stat-badge" style="font-size: 0.78rem;">
+                            Carregando status da área...
+                        </span>
+                        <button type="button" id="btn-admin-delete-area" class="btn-pill" style="display: none; font-size: 0.72rem; padding: 0.28rem 0.75rem; background: #e53935; color: #fff;" title="Excluir o polígono de área desta praia">
+                            🗑️ Remover Área
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação do Topo do Mapa -->
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Botão Demarcar Área -->
+                    <button type="button" id="btn-admin-toggle-draw" class="btn-pill btn-draw-mode" style="font-size: 0.82rem; padding: 0.45rem 1.1rem; background: #d97706; color: #fff;" title="Ativar modo de desenho para traçar a faixa de areia ou polígono">
+                        <span class="btn-icon">📐</span>
+                        <span id="admin-draw-btn-text">Demarcar Área de Praia</span>
                     </button>
-                    <button type="button" class="google-btn-tab" id="btn-admin-satellite">
-                        <span class="g-icon">🛰️</span> Satélite
-                    </button>
+
+                    <!-- Alternador Relevo / Satélite no Admin -->
+                    <div class="google-layer-widget" style="position: static; box-shadow: none; padding: 2px;">
+                        <button type="button" class="google-btn-tab active" id="btn-admin-terrain">
+                            <span class="g-icon">⛰️</span> Relevo
+                        </button>
+                        <button type="button" class="google-btn-tab" id="btn-admin-satellite">
+                            <span class="g-icon">🛰️</span> Satélite
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.2rem;">
-                Ajuste a latitude e longitude exatas da praia em Ubatuba. Você pode alterar os valores numéricos ou arrastar o marcador diretamente no mapa abaixo.
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.2rem; line-height: 1.5;">
+                Ajuste a latitude/longitude ou clique em <strong>"Demarcar Área de Praia"</strong> para desenhar a <strong>faixa de areia</strong> diretamente sobre a costa de Ubatuba, exatamente como na página principal.
             </p>
+
+            <!-- Banner Flutuante de Demarcação Ativa no Painel Admin -->
+            <div id="admin-draw-banner" class="draw-active-banner" style="display: none; margin-bottom: 1.2rem;">
+                <div class="draw-banner-inner">
+                    <div class="draw-status-box">
+                        <span class="draw-pulsing-badge"></span>
+                        <div>
+                            <strong id="admin-draw-mode-title">Demarcação da Faixa de Areia</strong>
+                            <p id="admin-draw-instructions">
+                                Clique ao longo da orla para traçar a faixa de areia. Arraste qualquer ponto para ajustar a curvatura.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Seletor de Ferramenta de Marcação (Faixa de Areia / Polígono / Traço Livre) -->
+                    <div class="draw-submodes-row">
+                        <button type="button" class="draw-submode-pill active" id="admin-submode-sand-strip" title="Traçar faixa de areia da praia com largura ajustável em metros">
+                            🏖️ Faixa de Areia
+                        </button>
+                        <button type="button" class="draw-submode-pill" id="admin-submode-polygon" title="Contorno livre por polígono poligonal">
+                            📐 Polígono Detalhado
+                        </button>
+                        <button type="button" class="draw-submode-pill" id="admin-submode-freehand" title="Desenhar livremente arrastando o mouse sobre a areia">
+                            ✏️ Traço Livre
+                        </button>
+                    </div>
+
+                    <!-- Botões de Ação da Demarcação -->
+                    <div class="draw-actions-btns">
+                        <button type="button" id="admin-btn-undo-draw" class="btn-pill btn-action-undo" disabled title="Desfazer o último ponto">
+                            ↩️ Desfazer
+                        </button>
+                        <button type="button" id="admin-btn-clear-draw" class="btn-pill btn-action-clear" title="Limpar todos os pontos">
+                            🔄 Limpar
+                        </button>
+                        <button type="button" id="admin-btn-finish-area" class="btn-pill btn-action-finish" disabled title="Salvar área demarcada na praia selecionada">
+                            💾 Salvar Área (<span id="admin-draw-vertex-count">0</span> pts)
+                        </button>
+                        <button type="button" id="admin-btn-cancel-draw" class="btn-pill btn-action-cancel" title="Fechar demarcação">
+                            ✖ Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Barra de Ajuste de Largura da Faixa de Areia (Metragem Real) -->
+                <div id="admin-sand-width-toolbar" class="sand-width-toolbar">
+                    <div class="sand-width-field">
+                        <span class="sand-width-label">🏖️ Largura da Areia: <strong id="admin-sand-width-val">35m</strong></span>
+                        <input type="range" id="admin-sand-width-slider" min="10" max="150" value="35" step="5" class="sand-slider" title="Ajustar largura da faixa de areia em metros">
+                    </div>
+                    <div class="sand-presets-row">
+                        <button type="button" class="sand-quick-width admin-sand-quick-width" data-width="20">Estreita (20m)</button>
+                        <button type="button" class="sand-quick-width admin-sand-quick-width active" data-width="35">Padrão (35m)</button>
+                        <button type="button" class="sand-quick-width admin-sand-quick-width" data-width="60">Larga (60m)</button>
+                        <button type="button" class="sand-quick-width admin-sand-quick-width" data-width="100">Ampla (100m)</button>
+                    </div>
+                    <div class="sand-stats-right">
+                        <span id="admin-sand-length-badge" class="sand-stat-badge">
+                            📏 Extensão da Praia: <strong id="admin-sand-length-val">0m</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
             <form id="admin-coords-form">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div>
                         <label for="admin-beach-lat" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">
-                            Latitude (GPS) *
+                            Latitude Central (GPS) *
                         </label>
                         <input type="number" step="0.000001" id="admin-beach-lat" class="pill-input-light" placeholder="-23.465800" required>
                     </div>
                     <div>
                         <label for="admin-beach-lng" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">
-                            Longitude (GPS) *
+                            Longitude Central (GPS) *
                         </label>
                         <input type="number" step="0.000001" id="admin-beach-lng" class="pill-input-light" placeholder="-45.058300" required>
                     </div>
                 </div>
 
                 <!-- Mapa Leaflet Interativo do Admin -->
-                <div style="position: relative; width: 100%; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                <div style="position: relative; width: 100%; height: 420px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
                     <div id="admin-leaflet-map" style="width: 100%; height: 100%;"></div>
                 </div>
 
@@ -107,7 +190,7 @@
                     <span style="font-size: 0.85rem; color: var(--text-muted);">
                         Ponto GPS selecionado: <strong id="admin-coords-display" style="color: var(--text-primary);">-23.4658, -45.0583</strong>
                     </span>
-                    <div style="display: flex; gap: 0.5rem;">
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                         <a id="admin-btn-test-maps" href="#" target="_blank" rel="noopener noreferrer" class="btn-pill" style="font-size: 0.78rem; padding: 0.4rem 0.9rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">
                             🌐 Ver no Google Maps &rarr;
                         </a>
@@ -117,9 +200,14 @@
                     </div>
                 </div>
 
-                <button type="submit" id="btn-save-coords" class="btn-pill" style="width: 100%; padding: 0.75rem 1.5rem; font-size: 0.9rem; background: var(--olive-btn);">
-                    💾 Salvar Novas Coordenadas da Praia
-                </button>
+                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                    <button type="submit" id="btn-save-coords" class="btn-pill" style="flex: 1; min-width: 200px; padding: 0.75rem 1.5rem; font-size: 0.9rem; background: var(--olive-btn);">
+                        💾 Salvar Novas Coordenadas GPS
+                    </button>
+                    <button type="button" id="btn-admin-trigger-draw" class="btn-pill" style="flex: 1; min-width: 200px; padding: 0.75rem 1.5rem; font-size: 0.9rem; background: #d97706; color: #fff;">
+                        🏖️ Traçar / Editar Área da Praia
+                    </button>
+                </div>
             </form>
         </div>
 
