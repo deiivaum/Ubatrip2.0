@@ -511,11 +511,94 @@ header {
     font-size: 0.9rem;
     color: var(--text-primary);
     outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.upload-form input[type="text"]:focus {
+    border-color: var(--olive-btn);
 }
 
 .upload-form input[type="file"] {
     font-size: 0.85rem;
     color: var(--text-muted);
+}
+
+.gallery-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: left;
+    width: 100%;
+}
+
+.gallery-input-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+
+.gallery-praia-select {
+    width: 100%;
+    padding: 0.75rem 1.2rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    outline: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gallery-praia-select:focus {
+    border-color: var(--olive-btn);
+    box-shadow: 0 0 0 3px rgba(120, 96, 28, 0.15);
+}
+
+.gallery-topic-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--olive-btn);
+    background: rgba(120, 96, 28, 0.1);
+    border: 1px solid rgba(120, 96, 28, 0.22);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    text-decoration: none;
+    margin-bottom: 0.65rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.gallery-topic-badge:hover {
+    background: var(--olive-btn);
+    color: #ffffff;
+    border-color: var(--olive-btn);
+    transform: translateX(2px);
+}
+
+.photo-community-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(16, 185, 129, 0.92);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .gallery-masonry {

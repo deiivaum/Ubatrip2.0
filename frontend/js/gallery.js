@@ -71,6 +71,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Popula o seletor de praias para tópico
+    async function initBeachSelector() {
+        const praiaSelect = document.getElementById('image-praia');
+        if (!praiaSelect) return;
+
+        let praias = [];
+        try {
+            const res = await fetch((window.API_URL || '/api') + '/praias');
+            if (res.ok) {
+                praias = await res.json();
+            }
+        } catch (e) {
+            console.warn('Usando dados de praias em cache/local:', e);
+        }
+
+        if ((!praias || praias.length === 0) && typeof PRAIAS_DATA !== 'undefined') {
+            praias = PRAIAS_DATA;
+        }
+
+        if (!praias || praias.length === 0) return;
+
+        praiaSelect.innerHTML = '<option value="">-- Selecione uma praia (aparecerá na descrição da praia) --</option>';
+
+        const regionNames = {
+            norte: 'Região Norte (Ex: Itamambuca, Félix, Prumirim...)',
+            centro: 'Região Central (Ex: Praia Grande, Tenório, Toninhas...)',
+            sul: 'Região Sul (Ex: Lazaro, Sununga, Maranduba...)',
+            ilhas: 'Ilhas de Ubatuba (Ex: Couves, Anchieta, Prumirim...)'
+        };
+
+        const groups = {
+            norte: [],
+            centro: [],
+            sul: [],
+            ilhas: [],
+            outras: []
+        };
+
+        praias.forEach(p => {
+            const reg = (p.region || 'centro').toLowerCase();
+            if (groups[reg]) {
+                groups[reg].push(p);
+            } else {
+                groups.outras.push(p);
+            }
+        });
+
+        Object.keys(groups).forEach(regKey => {
+            const list = groups[regKey];
+            if (list.length > 0) {
+                list.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = regionNames[regKey] || 'Outras Praias';
+                list.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.name;
+                    optgroup.appendChild(opt);
+                });
+                praiaSelect.appendChild(optgroup);
+            }
+        });
+
+        // Se a URL tiver ?praia=id, já seleciona automaticamente
+        const urlParams = new URLSearchParams(window.location.search);
+        const preselectedPraia = urlParams.get('praia');
+        if (preselectedPraia) {
+            praiaSelect.value = preselectedPraia;
+        }
+    }
+
+    initBeachSelector();
+
     // Carregar todas as fotos cadastradas
     async function loadImages() {
         try {
@@ -95,15 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     deleteBtn = `<button class="delete-btn" onclick="event.stopPropagation(); deleteImage(${img.id})">Excluir</button>`;
                 }
 
+                let beachBadgeHtml = '';
+                if (img.praia_name && img.praia_id) {
+                    beachBadgeHtml = `
+                        <a href="praia.html?id=${encodeURIComponent(img.praia_id)}" class="gallery-topic-badge" title="Ver detalhes e fotos da ${img.praia_name}">
+                            🏖️ ${img.praia_name} &rarr;
+                        </a>
+                    `;
+                }
+
                 const fullUrl = `http://localhost:3000/uploads/${img.filename}`;
 
                 item.innerHTML = `
                     <div class="gallery-img-clickable" onclick="openImageModal('${fullUrl}')" title="Clique para expandir a foto">
-                        <img src="${fullUrl}" alt="${img.description || 'Foto de Ubatuba'}" loading="lazy">
+                        <img src="${fullUrl}" alt="${img.description || img.praia_name || 'Foto de Ubatuba'}" loading="lazy">
                         <div class="gallery-zoom-hint">🔍 Expandir Foto</div>
                     </div>
                     <div class="info">
-                        <p class="desc">${img.description || 'Sem descrição'}</p>
+                        ${beachBadgeHtml}
+                        <p class="desc">${img.description || (img.praia_name ? 'Foto registrada na ' + img.praia_name : 'Sem descrição')}</p>
                         <p class="author">Enviado por: <strong>${img.author}</strong></p>
                     </div>
                     ${deleteBtn}
@@ -127,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const fileInput = document.getElementById('image-file');
             const descInput = document.getElementById('image-desc');
+            const praiaSelect = document.getElementById('image-praia');
             
             if (!fileInput.files[0]) {
                 if (typeof window.showToast === 'function') {
@@ -140,6 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData();
             formData.append('image', fileInput.files[0]);
             formData.append('description', descInput.value);
+            if (praiaSelect && praiaSelect.value) {
+                formData.append('praia_id', praiaSelect.value);
+            }
 
             try {
                 const res = await fetch(GALLERY_API, {
@@ -153,8 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.ok) {
                     fileInput.value = '';
                     descInput.value = '';
+                    if (praiaSelect) praiaSelect.value = '';
                     if (typeof window.showToast === 'function') {
-                        window.showToast('Foto enviada com sucesso para a galeria!', 'success');
+                        window.showToast('Foto enviada com sucesso para a galeria e praia!', 'success');
                     }
                     loadImages();
                 } else {

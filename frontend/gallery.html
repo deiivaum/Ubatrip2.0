@@ -47,10 +47,28 @@
         <!-- Formulário para envio de foto (visível para usuários logados) -->
         <div id="upload-section" class="upload-card" style="display: none;">
             <h3>Adicionar Nova Foto</h3>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 1.5rem;">
+                Escolha a praia correspondente para que sua foto apareça automaticamente na galeria e na página de descrição da praia!
+            </p>
             <form id="upload-form" class="upload-form">
-                <input type="file" id="image-file" accept="image/*" required>
-                <input type="text" id="image-desc" placeholder="Adicione uma legenda ou nome do local...">
-                <button type="submit" class="btn-pill" style="align-self: center; width: 100%;">Enviar para a Galeria</button>
+                <div class="gallery-input-group">
+                    <label for="image-file" class="gallery-input-label">Arquivo da foto:</label>
+                    <input type="file" id="image-file" accept="image/*" required>
+                </div>
+
+                <div class="gallery-input-group">
+                    <label for="image-praia" class="gallery-input-label">🏖️ Tópico / Praia de Ubatuba:</label>
+                    <select id="image-praia" class="gallery-praia-select">
+                        <option value="">-- Selecione uma praia (aparecerá na descrição da praia) --</option>
+                    </select>
+                </div>
+
+                <div class="gallery-input-group">
+                    <label for="image-desc" class="gallery-input-label">Legenda ou descrição (opcional):</label>
+                    <input type="text" id="image-desc" placeholder="Ex: Mar calmo e sol lindo na praia...">
+                </div>
+
+                <button type="submit" class="btn-pill" style="align-self: center; width: 100%; margin-top: 0.5rem;">Enviar para a Galeria</button>
             </form>
         </div>
 
@@ -78,6 +96,7 @@
     </footer>
 
     <script src="js/auth.js"></script>
+    <script src="js/praias-data.js"></script>
     <script src="js/gallery.js"></script>
     <script>
         function toggleDrawer() {

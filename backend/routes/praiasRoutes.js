@@ -28,28 +28,7 @@ const upload = multer({
     limits: { fileSize: 10 * 1024 * 1024 } // 10MB
 });
 
-function getPraiasData() {
-    try {
-        if (!fs.existsSync(dataFilePath)) return [];
-        const raw = fs.readFileSync(dataFilePath, 'utf8');
-        return JSON.parse(raw);
-    } catch (e) {
-        console.error('Erro ao ler praias.json:', e);
-        return [];
-    }
-}
-
-function savePraiasData(data) {
-    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
-    try {
-        const frontDataPath = path.join(__dirname, '../../frontend/js/praias-data.js');
-        if (fs.existsSync(frontDataPath)) {
-            fs.writeFileSync(frontDataPath, 'var PRAIAS_DATA = ' + JSON.stringify(data, null, 2) + ';\n', 'utf8');
-        }
-    } catch (e) {
-        console.warn('Aviso: Não foi possível sincronizar praias-data.js:', e.message);
-    }
-}
+const { getPraiasData, savePraiasData } = require('../config/praiasHelper');
 
 function slugify(text) {
     return text.toString().toLowerCase()

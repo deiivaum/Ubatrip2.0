@@ -42,6 +42,10 @@ async function checkPg() {
     if (isPgAvailable !== null) return isPgAvailable;
     try {
         const client = await pool.connect();
+        await client.query(`
+            ALTER TABLE images ADD COLUMN IF NOT EXISTS praia_id VARCHAR(100);
+            ALTER TABLE images ADD COLUMN IF NOT EXISTS praia_name VARCHAR(150);
+        `).catch(() => {});
         client.release();
         isPgAvailable = true;
         console.log('✅ [Banco de Dados] Conectado ao PostgreSQL com sucesso na porta 5432!');
@@ -88,7 +92,12 @@ function queryLocal(text, params = []) {
 
     // 4. SELECT images ... JOIN users ...
     if (cleanText.includes('FROM images') && cleanText.includes('JOIN users')) {
-        const rows = db.images.map(img => {
+        let imgs = [...db.images];
+        if (cleanText.includes('WHERE images.praia_id =')) {
+            const pId = params[0];
+            imgs = imgs.filter(img => img.praia_id === pId);
+        }
+        const rows = imgs.map(img => {
             const user = db.users.find(u => u.id === img.user_id) || { name: 'Viajante' };
             return {
                 id: img.id,
@@ -96,6 +105,8 @@ function queryLocal(text, params = []) {
                 description: img.description,
                 user_id: img.user_id,
                 author: user.name,
+                praia_id: img.praia_id || null,
+                praia_name: img.praia_name || null,
                 created_at: img.created_at
             };
         }).sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -104,12 +115,14 @@ function queryLocal(text, params = []) {
 
     // 5. INSERT INTO images ...
     if (cleanText.startsWith('INSERT INTO images')) {
-        const [user_id, filename, description] = params;
+        const [user_id, filename, description, praia_id, praia_name] = params;
         const newImg = {
             id: db.imageSeq++,
             user_id: parseInt(user_id),
             filename,
             description: description || '',
+            praia_id: praia_id || null,
+            praia_name: praia_name || null,
             created_at: new Date().toISOString()
         };
         db.images.push(newImg);
@@ -118,7 +131,7 @@ function queryLocal(text, params = []) {
     }
 
     // 6. SELECT * FROM images WHERE id = $1
-    if (cleanText.includes('FROM images WHERE id =')) {
+    if (cleanText.startsWith('SELECT') && cleanText.includes('FROM images WHERE id =')) {
         const id = parseInt(params[0]);
         const rows = db.images.filter(img => img.id === id);
         return { rows, rowCount: rows.length };

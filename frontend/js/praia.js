@@ -118,15 +118,62 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Galeria de Fotos
+    // Atualiza link de CTA para enviar foto desta praia
+    const ctaGalleryLink = document.getElementById('cta-gallery-link');
+    if (ctaGalleryLink) {
+        ctaGalleryLink.href = `gallery.html?praia=${encodeURIComponent(praia.id)}`;
+    }
+
+    // Galeria de Fotos da Praia (Combina fotos oficiais e fotos da comunidade da Galeria)
     const photosContainer = document.getElementById('praia-photos');
-    if (photosContainer && praia.images) {
-        photosContainer.innerHTML = praia.images.map(img => `
-            <div class="praia-photo-card" style="cursor: pointer;" onclick="openImageModal('${img.url}')" title="Clique para expandir a foto">
-                <img src="${img.url}" alt="${img.caption}" loading="lazy">
-                <div class="photo-caption">${img.caption}</div>
-            </div>
-        `).join('');
+    let allPhotos = praia.images ? [...praia.images] : [];
+
+    try {
+        const galRes = await fetch(`${API_URL}/gallery/praia/${praia.id}`);
+        if (galRes.ok) {
+            const communityImages = await galRes.json();
+            if (Array.isArray(communityImages)) {
+                communityImages.forEach(cImg => {
+                    const imgUrl = `http://localhost:3000/uploads/${cImg.filename}`;
+                    const exists = allPhotos.some(p => p.url === imgUrl || (p.filename && p.filename === cImg.filename));
+                    if (!exists) {
+                        allPhotos.push({
+                            url: imgUrl,
+                            caption: cImg.description || `Foto de ${cImg.author} na ${praia.name}`,
+                            author: cImg.author,
+                            community: true
+                        });
+                    }
+                });
+            }
+        }
+    } catch (e) {
+        console.warn('Aviso: Não foi possível carregar fotos adicionais da galeria:', e);
+    }
+
+    if (photosContainer) {
+        if (allPhotos.length === 0) {
+            photosContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem 1rem; background: var(--bg-secondary); border-radius: 12px; border: 1px dashed var(--border-color);">
+                    <p style="color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.95rem;">Nenhuma foto cadastrada para esta praia ainda.</p>
+                    <a href="gallery.html?praia=${encodeURIComponent(praia.id)}" class="btn-pill" style="font-size: 0.85rem; padding: 0.55rem 1.4rem;">
+                        📸 Seja o primeiro a compartilhar uma foto na Galeria &rarr;
+                    </a>
+                </div>
+            `;
+        } else {
+            photosContainer.innerHTML = allPhotos.map(img => {
+                const isCommunity = img.community || (img.author && img.author !== 'UbaTrip');
+                const badge = isCommunity ? `<span class="photo-community-badge">👥 ${img.author ? 'Foto de ' + img.author : 'Comunidade'}</span>` : '';
+                return `
+                    <div class="praia-photo-card" style="cursor: pointer; position: relative;" onclick="openImageModal('${img.url}')" title="Clique para expandir a foto">
+                        <img src="${img.url}" alt="${img.caption || praia.name}" loading="lazy">
+                        ${badge}
+                        <div class="photo-caption">${img.caption || praia.name}</div>
+                    </div>
+                `;
+            }).join('');
+        }
     }
 
     // Descrição completa

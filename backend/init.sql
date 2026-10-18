@@ -12,5 +12,7 @@ CREATE TABLE IF NOT EXISTS images (
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     filename VARCHAR(255) NOT NULL,
     description TEXT,
+    praia_id VARCHAR(100),
+    praia_name VARCHAR(150),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
